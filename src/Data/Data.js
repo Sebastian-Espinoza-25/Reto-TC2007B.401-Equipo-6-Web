@@ -35,10 +35,10 @@ export const SidebarData = [
 
 export const CardsData = [
     {
-        title: 'Total de ventas',
+        title: 'Ventas',
         color: {
             backGround: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
-            boxShadow: "0 4px 15px 0 rgba(253, 168, 79, 0.75)"
+            boxShadow: "0 10px 20px 0px #f6d365",
         },
         barValue: 70,
         value: "70,970",
@@ -52,10 +52,10 @@ export const CardsData = [
     },
 
     {
-        title: 'Productos vendidos',
+        title: 'Ordenes',
         color: {
-            backGround: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-            boxShadow: "0 4px 15px 0 rgba(245, 87, 108, 0.75)"
+            backGround: "linear-gradient(180deg, #bb67ff 0%, #f5576c 100%)",
+            boxShadow: "0 10px 20px 0px #e0c6f5",
         },
         barValue: 30,
         value: "30,970",
@@ -72,7 +72,7 @@ export const CardsData = [
         title: 'Comunidades',
         color: {
             backGround: "linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)",
-            boxShadow: "0 4px 15px 0 rgba(181, 136, 177, 0.75)"
+            boxShadow: "0 10px 20px 0px #b490ca",
         },
         barValue: 50,
         value: "50,970",
