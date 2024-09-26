@@ -15,8 +15,9 @@
 .App{
   background: linear-gradient(
     106.37deg,
-    #D5507C 10.63%,
-    #F8B8AF 90.85%
+    #F8B8AF 10.85%,
+    #D5507C 90.63%
+    
   
   );
   height: 100vh;
