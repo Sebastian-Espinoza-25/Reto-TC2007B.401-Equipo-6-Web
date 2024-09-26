@@ -1,8 +1,8 @@
 import React from 'react'
-import Logo from '../imgs/logo.png'
+import Logo from '../../imgs/logo.png'
 import './Sidebar.css'
 
-import { SidebarData } from '../Data/Data';
+import { SidebarData } from '../../Data/Data';
 import { UilSignOutAlt } from '@iconscout/react-unicons'
 
 const Sidebar = () => {
