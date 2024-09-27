@@ -124,11 +124,12 @@ function ExpandedCard({param, setExpanded}){
             boxShadow: param.color.boxShadow,
         }}
         layoutId="expandableCard"
+        >
+        <div style={{alignSelf: "flex-end", cursor: "pointer", color: "white"}}>
+            <UilTimes onClick={setExpanded}
 
-
-    >
-        <div>
-            <UilTimes onClick={setExpanded}/>
+    
+            />
         </div>
         <span>
             {param.title}
