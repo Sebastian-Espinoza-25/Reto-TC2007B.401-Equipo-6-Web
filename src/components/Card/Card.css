@@ -24,13 +24,13 @@
 }
 
 .CircularProgressbar{
-    width: 4rem!important;
+    width: 4rem !important;
     overflow: visible;
 }
 
 .CircularProgressbar-path{
-    stroke: white!important;
-    stroke-width: 12px;
+    stroke: white !important;
+    stroke-width: 12px !important;
     filter: drop-shadow(2px 4px 6px white)
 }
 
@@ -103,4 +103,23 @@
 
 .chartContainer{
     width: 70%;
+}
+
+@media screen and (max-width: 1200px){
+    .ExpandedCard{
+        top: 2rem;
+        height: 70vh;
+        left:6rem;
+
+    }
+}
+
+@media screen and (max-width: 768px){
+    .ExpandedCard{
+        top: 8rem;
+        height: 50%;
+        left: 15;
+        width: 50%;
+    }
+    
 }
