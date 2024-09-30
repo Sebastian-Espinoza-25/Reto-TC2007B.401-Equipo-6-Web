@@ -13,29 +13,34 @@ function createData(id_Producto, Orden, Total, Direccion, Estatus) {
 }
 
 const rows = [
-  createData(10, 159, 222, "Izcalli", "Envíado"),
+  createData(10, 159, 222, "Izcalli", "Entregado"),
   createData(11, 237, 262, "Tlalnepantla", "Pendiente"),
-  createData(12, 262, 305, "Atizapan", "Recibido"),
-  createData(13, 305, 356, "Toluca", "Recibido"),
+  createData(12, 262, 305, "Atizapan", "Cancelado"),
+  createData(13, 305, 356, "Toluca", "Entregado"),
   createData(14, 356, 356, "Izcalli", "Envíado"),
 
 ];
 
 const makeStyle = (status) => {
-  if (status === 'Envíado') {
+  if (status === 'Entregado') {
     return {
       background: 'rgb(145 254 159 / 47%)',
       color: 'green',
     };
-  } else if (status === 'Pendiente') {
+  } else if (status === 'Cancelado') {
     return {
       background: '#ffadad8f',
       color: 'red',
     };
-  } else {
+  } else if (status === 'Pendiente') {
     return {
-      background: '#59bfff',
-      color: 'white',
+      background: '#e573e7',
+      color: '#58005a',
+    };
+  } else if (status === 'Envíado') {
+    return {
+      background: '#fff888',
+      color: 'black',
     };
   }
 };

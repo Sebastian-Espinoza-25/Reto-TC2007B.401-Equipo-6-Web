@@ -5,7 +5,7 @@ import './AppComun.css';
 function AppHistorial() {
   return (
     <div className='AppCss'>
-        <div className='AppGlass'>
+        <div className='AppGlassNew'>
         <Sidebar/>
         <div>AppHistorial</div>
         </div>

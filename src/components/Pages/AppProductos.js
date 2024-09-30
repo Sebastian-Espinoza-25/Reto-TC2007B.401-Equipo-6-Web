@@ -5,7 +5,7 @@ import './AppComun.css';
 function AppProducto() {
   return (
     <div className='AppCss'>
-        <div className='AppGlass'>
+        <div className='AppGlassNew'>
         <Sidebar/>
         <div>AppProducto</div>
         </div>

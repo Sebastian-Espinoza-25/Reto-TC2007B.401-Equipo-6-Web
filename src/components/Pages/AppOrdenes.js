@@ -1,13 +1,14 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
+import OrdersTable from '../OrdersTable/OrdersTable';
 import './AppComun.css';
 
 function AppOrdenes() {
   return (
     <div className='AppCss'>
-        <div className='AppGlass'>
+        <div className='AppGlassNew'>
         <Sidebar/>
-        <div>AppOrdenes</div>
+        <OrdersTable/>
         </div>
 
     </div>
