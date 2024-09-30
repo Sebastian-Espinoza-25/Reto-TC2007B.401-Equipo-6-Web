@@ -10,7 +10,6 @@ function App() {
       <Sidebar/>
       <MainDash/>
       <RightSide/>
-      <div></div>
       </div>
       
       

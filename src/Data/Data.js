@@ -16,22 +16,27 @@ export const SidebarData = [
     {
         icon : UilEstate,
         heading : 'Dashboard',
+        path: '/',
     },
     {
         icon : UilClipboardAlt,
         heading : 'Ordenes',
+        path: '/appordenes',
     },
     {
         icon : UilDiary,
         heading : 'Historial de ventas',
+        path: '/appventas',
     },
     {
         icon : UilShoppingBag,
         heading : 'Productos',
+        path: '/appproductos',
     },
     {
         icon : UilChat,
         heading : 'Comunidades',
+        path: '/appcomunidades',
     }
 ];
 
