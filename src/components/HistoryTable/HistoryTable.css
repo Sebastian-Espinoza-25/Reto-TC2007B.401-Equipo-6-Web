@@ -1,0 +1,32 @@
+.OrdersTable{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* Custom scrollbar for Webkit-based browsers (Chrome, Safari, Edge) */
+.ScrollbarCustomHistory::-webkit-scrollbar {
+    width: 10px; 
+  }
+  
+  .ScrollbarCustomHistory::-webkit-scrollbar::-webkit-scrollbar-track {
+    background: #ffecf4; 
+  }
+  
+  .ScrollbarCustomHistory::-webkit-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #feb4c0; 
+    border-radius: 10px; 
+    border: 2px solid #ffecf4;
+  }
+  
+  .ScrollbarCustomHistory::-webkit-scrollbar-thumb:hover {
+    background-color: #ff919d; 
+  }
+  
+  /* Custom scrollbar  Firefox */
+  .ScrollbarCustomHistory {
+    scrollbar-width: thin;
+    scrollbar-color: #feb4c0 #ffecf4; 
+  }
+  
+

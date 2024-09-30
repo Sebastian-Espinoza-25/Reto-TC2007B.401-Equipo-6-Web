@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
+import HistoryTable from '../HistoryTable/HistoryTable';
 import './AppComun.css';
 
 function AppHistorial() {
@@ -7,7 +8,7 @@ function AppHistorial() {
     <div className='AppCss'>
         <div className='AppGlassNew'>
         <Sidebar/>
-        <div>AppHistorial</div>
+        <HistoryTable/>
         </div>
 
     </div>
