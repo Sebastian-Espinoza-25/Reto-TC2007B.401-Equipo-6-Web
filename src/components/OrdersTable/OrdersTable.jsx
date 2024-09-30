@@ -14,6 +14,7 @@ import {
   CardContent,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import "./OrdersTable.css";
 
 const ProductTable = () => {
   const [data, setData] = useState([]);
@@ -88,29 +89,33 @@ const ProductTable = () => {
     <div className="Table">
       <h1>Envíos ZAZIL</h1>
       <TableContainer
+        className="ScrollbarCustom"
         component={Paper}
+        elevation={7}
         style={{
           boxShadow: "0px 13px 20px 0px #80808029",
           maxHeight: 600,
           overflow: "auto",
+          backgroundColor: "#ffecf4",
         }}
       >
         <Table sx={{ minWidth: 650 }} aria-label="product table" stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell>Id_Producto</TableCell>
-              <TableCell align="left">Orden</TableCell>
-              <TableCell align="left">Total$</TableCell>
-              <TableCell align="left">Dirección</TableCell>
-              <TableCell align="left">Fecha</TableCell>
-              <TableCell align="left">Estatus</TableCell>
-              <TableCell align="left">Detalle</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Id_Producto</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Orden</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Total$</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Dirección</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Fecha</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Estatus</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Detalle</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {data.map((row) => (
               <React.Fragment key={row.id}>
-                <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                <TableRow sx={{ 
+                  "&:last-child td, &:last-child th": { border: 0 } }}>
                   <TableCell component="th" scope="row">{row.id}</TableCell>
                   <TableCell align="left">{row.orden}</TableCell>
                   <TableCell align="left">{row.total}</TableCell>
