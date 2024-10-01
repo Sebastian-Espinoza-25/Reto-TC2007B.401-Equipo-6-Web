@@ -6,7 +6,7 @@ import AppOrdenes from './components/Pages/AppOrdenes';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
+  // Route,
 } from 'react-router-dom'
 import AppHistorial from './components/Pages/AppHistorial';
 import AppProducto from './components/Pages/AppProductos';

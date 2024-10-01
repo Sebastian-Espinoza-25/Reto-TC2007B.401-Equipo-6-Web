@@ -8,7 +8,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import Chart from 'react-apexcharts';
 
 import {UilTimes} from '@iconscout/react-unicons'
-import { type } from "@testing-library/user-event/dist/type";
+// import { type } from "@testing-library/user-event/dist/type";
 
 
 const Card = (props) => {
