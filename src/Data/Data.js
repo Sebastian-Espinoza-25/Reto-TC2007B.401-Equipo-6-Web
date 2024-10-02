@@ -6,6 +6,7 @@ import {
     UilShoppingBag,
     UilChat,
     UilUsdSquare,
+    UilEnvelope,
 } from '@iconscout/react-unicons'
 
 import img1 from '../imgs/img1.png';
@@ -37,6 +38,11 @@ export const SidebarData = [
         icon : UilChat,
         heading : 'Comunidades',
         path: '/appcomunidades',
+    },
+    {
+        icon : UilEnvelope,
+        heading : 'Nuevo Producto',
+        path: '/productform',
     }
 ];
 
