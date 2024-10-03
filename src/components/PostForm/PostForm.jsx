@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
-import './PostForm.css';
+import React, { useState, useEffect } from "react";
+import "./PostForm.css";
 
 const PostForm = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    content: '',
-    partner_id: '',
-    date: '',
-    summary: '',
+    title: "",
+    summary: "",
+    date: "",
+    category: "",
+    partner_id: "",
     file_path: null,
-    category: ''
   });
+
+  useEffect(() => {
+    const today = new Date().toISOString().split("T")[0];
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      date: today,
+    }));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
       ...formData,
-      [name]: files ? files[0] : value
+      [name]: files ? files[0] : value,
     });
   };
 
@@ -28,18 +35,18 @@ const PostForm = () => {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/api/posts', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3000/api/posts", {
+        method: "POST",
         body: postData,
       });
       if (response.ok) {
-        alert('Producto creado exitosamente');
+        alert("Post creado exitosamente");
       } else {
-          alert('Error al crear el producto');
-      }      
+        alert("Error al crear el post");
+      }
     } catch (error) {
-        console.error('Error:', error);
-        console.error('Error al crear el post:', error);
+      console.error("Error:", error);
+      console.error("Error al crear el post:", error);
     }
   };
 
@@ -55,11 +62,21 @@ const PostForm = () => {
         required
       />
       <textarea
-        name="content"
-        placeholder="Contenido"
-        value={formData.content}
+        name="summary"
+        placeholder="Resumen"
+        value={formData.summary}
         onChange={handleChange}
         required
+        style={{ resize: "none" }}
+      />
+      <input
+        type="date"
+        name="date"
+        placeholder="Fecha"
+        value={formData.date}
+        onChange={handleChange}
+        required
+        disabled
       />
       <input
         type="text"
@@ -69,36 +86,20 @@ const PostForm = () => {
         onChange={handleChange}
         required
       />
-      <input
-        type="date"
-        name="date"
-        placeholder="Fecha"
-        value={formData.date}
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="summary"
-        placeholder="Resumen"
-        value={formData.summary}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="file"
-        name="file_path"
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
+      <input type="file" name="file_path" onChange={handleChange} required />
+      <select
         name="category"
-        placeholder="Categoría"
         value={formData.category}
         onChange={handleChange}
         required
-      />
-      <button type="submit">Crear Post</button>
+      >
+        <option value="">Selecciona una categoría</option>
+        <option value="salud">Salud</option>
+        <option value="inspirate">Inspirate</option>
+        <option value="bienestar">Bienestar</option>
+        <option value="eco">Eco</option>
+      </select>
+      <button type="submit">Crear Producto</button>
     </form>
   );
 };
