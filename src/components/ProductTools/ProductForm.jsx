@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ProductForm.css";
+import "./FormStyles.css";
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -101,7 +101,7 @@ const ProductForm = () => {
         required
         style={{ resize: "none" }}
       />
-      <div>
+      <div className="dimensions-category">
         <input
           type="number"
           name="dimensions_width"
@@ -118,22 +118,22 @@ const ProductForm = () => {
           onChange={handleDimensionsChange}
           required
         />
+        <select
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Selecciona una categoría</option>
+          <option value="toallas-regulares">Toallas Regulares</option>
+          <option value="toallas-nocturnas">Toallas Nocturnas</option>
+          <option value="toallas-teen">Toallas Teen</option>
+          <option value="pantiprotectores-diarios">
+            Pantiprotectores Diarios
+          </option>
+        </select>
       </div>
       <input type="file" name="image_path" onChange={handleChange} required />
-      <select
-        name="category"
-        value={formData.category}
-        onChange={handleChange}
-        required
-      >
-        <option value="">Selecciona una categoría</option>
-        <option value="toallas-regulares">Toallas Regulares</option>
-        <option value="toallas-nocturnas">Toallas Nocturnas</option>
-        <option value="toallas-teen">Toallas Teen</option>
-        <option value="pantiprotectores-diarios">
-          Pantiprotectores Diarios
-        </option>
-      </select>
       <button type="submit">Crear Producto</button>
     </form>
   );

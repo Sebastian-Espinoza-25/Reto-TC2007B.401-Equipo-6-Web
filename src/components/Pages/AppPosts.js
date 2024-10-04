@@ -1,17 +1,17 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import HistoryTable from "../HistoryTable/HistoryTable";
+import PostsView from "../PostsView/PostsView";
 import "./AppComun.css";
 
-function AppHistorial() {
+const AppPosts = () => {
   return (
     <div className="AppCss">
       <div className="AppGlassNew">
         <Sidebar />
-        <HistoryTable />
+        <PostsView />
       </div>
     </div>
   );
-}
+};
 
-export default AppHistorial;
+export default AppPosts;

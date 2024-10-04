@@ -7,9 +7,11 @@
     border-radius: 1rem;
     box-shadow: var(--boxShadow);
 }
+
 .post-form h2 {
     margin-bottom: 1rem;
 }
+
 .post-form input,
 .post-form textarea {
     padding: 0.5rem;
@@ -17,6 +19,7 @@
     border-radius: 0.5rem;
     font-size: 1rem;
 }
+
 .post-form button {
     padding: 0.75rem;
     border: none;
@@ -26,6 +29,7 @@
     font-size: 1rem;
     cursor: pointer;
 }
+
 .post-form button:hover {
     background: darken(var(--orange), 10%);
 }

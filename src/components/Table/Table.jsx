@@ -18,29 +18,28 @@ const rows = [
   createData(12, 262, 305, "Atizapan", "Cancelado"),
   createData(13, 305, 356, "Toluca", "Entregado"),
   createData(14, 356, 356, "Izcalli", "Envíado"),
-
 ];
 
 const makeStyle = (status) => {
-  if (status === 'Entregado') {
+  if (status === "Entregado") {
     return {
-      background: 'rgb(145 254 159 / 47%)',
-      color: 'green',
+      background: "rgb(145 254 159 / 47%)",
+      color: "green",
     };
-  } else if (status === 'Cancelado') {
+  } else if (status === "Cancelado") {
     return {
-      background: '#ffadad8f',
-      color: 'red',
+      background: "#ffadad8f",
+      color: "red",
     };
-  } else if (status === 'Pendiente') {
+  } else if (status === "Pendiente") {
     return {
-      background: '#e573e7',
-      color: '#58005a',
+      background: "#e573e7",
+      color: "#58005a",
     };
-  } else if (status === 'Envíado') {
+  } else if (status === "Envíado") {
     return {
-      background: '#fff888',
-      color: 'black',
+      background: "#fff888",
+      color: "black",
     };
   }
 };
@@ -66,7 +65,7 @@ export default function BasicTable() {
           <TableBody style={{ color: "white" }}>
             {rows.map((row) => (
               <TableRow
-                key={row.id_Producto} 
+                key={row.id_Producto}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
@@ -76,7 +75,9 @@ export default function BasicTable() {
                 <TableCell align="left">{row.Total}</TableCell>
                 <TableCell align="left">{row.Direccion}</TableCell>
                 <TableCell align="left">
-                  <span className="status" style={makeStyle(row.Estatus)}>{row.Estatus}</span>
+                  <span className="status" style={makeStyle(row.Estatus)}>
+                    {row.Estatus}
+                  </span>
                 </TableCell>
               </TableRow>
             ))}

@@ -9,6 +9,7 @@ const PostForm = () => {
     category: "",
     partner_id: "",
     file_path: null,
+    image_path: null,
   });
 
   useEffect(() => {
@@ -45,7 +46,6 @@ const PostForm = () => {
         alert("Error al crear el post");
       }
     } catch (error) {
-      console.error("Error:", error);
       console.error("Error al crear el post:", error);
     }
   };
@@ -87,6 +87,7 @@ const PostForm = () => {
         required
       />
       <input type="file" name="file_path" onChange={handleChange} required />
+      <input type="file" name="image_path" onChange={handleChange} required />
       <select
         name="category"
         value={formData.category}
@@ -99,7 +100,7 @@ const PostForm = () => {
         <option value="bienestar">Bienestar</option>
         <option value="eco">Eco</option>
       </select>
-      <button type="submit">Crear Producto</button>
+      <button type="submit">Crear Post</button>
     </form>
   );
 };

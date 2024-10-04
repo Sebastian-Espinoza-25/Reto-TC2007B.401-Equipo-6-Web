@@ -21,10 +21,34 @@ const ProductTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       const fetchedData = [
-        { id: 10, orden: "ORD1234", total: 500, direccion: "Izcalli", fecha: "2023-09-29" },
-        { id: 11, orden: "ORD5678", total: 700, direccion: "Tlalnepantla", fecha: "2023-09-28" },
-        { id: 12, orden: "ORD5679", total: 300, direccion: "Atizapan", fecha: "2023-09-27" },
-        { id: 13, orden: "ORD5680", total: 400, direccion: "Toluca", fecha: "2023-09-26" },
+        {
+          id: 10,
+          orden: "ORD1234",
+          total: 500,
+          direccion: "Izcalli",
+          fecha: "2023-09-29",
+        },
+        {
+          id: 11,
+          orden: "ORD5678",
+          total: 700,
+          direccion: "Tlalnepantla",
+          fecha: "2023-09-28",
+        },
+        {
+          id: 12,
+          orden: "ORD5679",
+          total: 300,
+          direccion: "Atizapan",
+          fecha: "2023-09-27",
+        },
+        {
+          id: 13,
+          orden: "ORD5680",
+          total: 400,
+          direccion: "Toluca",
+          fecha: "2023-09-26",
+        },
       ];
       setData(fetchedData);
     };
@@ -52,12 +76,24 @@ const ProductTable = () => {
         <Table sx={{ minWidth: 650 }} aria-label="product table" stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Id_Producto</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Orden</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Total$</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Dirección</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Fecha</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Detalle</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Id_Producto
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Orden
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Total$
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Dirección
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Fecha
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Detalle
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -68,7 +104,9 @@ const ProductTable = () => {
                     "&:last-child td, &:last-child th": { border: 0 },
                   }}
                 >
-                  <TableCell component="th" scope="row">{row.id}</TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
                   <TableCell align="left">{row.orden}</TableCell>
                   <TableCell align="left">{row.total}</TableCell>
                   <TableCell align="left">{row.direccion}</TableCell>

@@ -19,21 +19,80 @@ import "./OrdersTable.css";
 const ProductTable = () => {
   const [data, setData] = useState([]);
   const [selectedDetail, setSelectedDetail] = useState(null);
-  const [statusOptions] = useState(["Pendiente", "Envíado", "Entregado", "Cancelado"]);
+  const [statusOptions] = useState([
+    "Pendiente",
+    "Envíado",
+    "Entregado",
+    "Cancelado",
+  ]);
 
   useEffect(() => {
     const fetchData = async () => {
       // Fetched data no longer includes 'estatus'
       const fetchedData = [
-        { id: 10, orden: "ORD1234", total: 500, direccion: "Izcalli", fecha: "2023-09-29" },
-        { id: 11, orden: "ORD5678", total: 700, direccion: "Tlalnepantla", fecha: "2023-09-28" },
-        { id: 12, orden: "ORD5679", total: 300, direccion: "Atizapan", fecha: "2023-09-27" },
-        { id: 13, orden: "ORD5680", total: 400, direccion: "Toluca", fecha: "2023-09-26" },
-        { id: 14, orden: "ORD5681", total: 350, direccion: "Naucalpan", fecha: "2023-09-25" },
-        { id: 15, orden: "ORD5682", total: 250, direccion: "Cuautitlan", fecha: "2023-09-24" },
-        { id: 16, orden: "ORD5683", total: 150, direccion: "Tultitlan", fecha: "2023-09-23" },
-        { id: 17, orden: "ORD5684", total: 50, direccion: "Tepotzotlan", fecha: "2023-09-22" },
-        { id: 18, orden: "ORD5685", total: 100, direccion: "Tultepec", fecha: "2023-09-21" },
+        {
+          id: 10,
+          orden: "ORD1234",
+          total: 500,
+          direccion: "Izcalli",
+          fecha: "2023-09-29",
+        },
+        {
+          id: 11,
+          orden: "ORD5678",
+          total: 700,
+          direccion: "Tlalnepantla",
+          fecha: "2023-09-28",
+        },
+        {
+          id: 12,
+          orden: "ORD5679",
+          total: 300,
+          direccion: "Atizapan",
+          fecha: "2023-09-27",
+        },
+        {
+          id: 13,
+          orden: "ORD5680",
+          total: 400,
+          direccion: "Toluca",
+          fecha: "2023-09-26",
+        },
+        {
+          id: 14,
+          orden: "ORD5681",
+          total: 350,
+          direccion: "Naucalpan",
+          fecha: "2023-09-25",
+        },
+        {
+          id: 15,
+          orden: "ORD5682",
+          total: 250,
+          direccion: "Cuautitlan",
+          fecha: "2023-09-24",
+        },
+        {
+          id: 16,
+          orden: "ORD5683",
+          total: 150,
+          direccion: "Tultitlan",
+          fecha: "2023-09-23",
+        },
+        {
+          id: 17,
+          orden: "ORD5684",
+          total: 50,
+          direccion: "Tepotzotlan",
+          fecha: "2023-09-22",
+        },
+        {
+          id: 18,
+          orden: "ORD5685",
+          total: 100,
+          direccion: "Tultepec",
+          fecha: "2023-09-21",
+        },
         // Add more data if necessary
       ];
 
@@ -102,21 +161,40 @@ const ProductTable = () => {
         <Table sx={{ minWidth: 650 }} aria-label="product table" stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Id_Producto</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Orden</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Total$</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Dirección</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Fecha</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Estatus</TableCell>
-              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">Detalle</TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Id_Producto
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Orden
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Total$
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Dirección
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Fecha
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Estatus
+              </TableCell>
+              <TableCell style={{ backgroundColor: "#feb4c0" }} align="left">
+                Detalle
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {data.map((row) => (
               <React.Fragment key={row.id}>
-                <TableRow sx={{ 
-                  "&:last-child td, &:last-child th": { border: 0 } }}>
-                  <TableCell component="th" scope="row">{row.id}</TableCell>
+                <TableRow
+                  sx={{
+                    "&:last-child td, &:last-child th": { border: 0 },
+                  }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
                   <TableCell align="left">{row.orden}</TableCell>
                   <TableCell align="left">{row.total}</TableCell>
                   <TableCell align="left">{row.direccion}</TableCell>
@@ -124,7 +202,9 @@ const ProductTable = () => {
                   <TableCell align="left">
                     <Select
                       value={row.estatus}
-                      onChange={(e) => handleStatusChange(row.id, e.target.value)}
+                      onChange={(e) =>
+                        handleStatusChange(row.id, e.target.value)
+                      }
                       variant="outlined"
                       style={{
                         width: "120px",

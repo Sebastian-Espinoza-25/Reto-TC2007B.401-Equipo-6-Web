@@ -1,7 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
 
-
 const RightGraph = () => {
   const data = {
     series: [
@@ -48,16 +47,18 @@ const RightGraph = () => {
         ],
       },
       yaxis: {
-        show: false
+        show: false,
       },
-      toolbar:{
-        show: false
-      }
+      toolbar: {
+        show: false,
+      },
     },
   };
-  return <div className="RightGraph">
-        <Chart options={data.options} series={data.series} type="area" />
-  </div>;
+  return (
+    <div className="RightGraph">
+      <Chart options={data.options} series={data.series} type="area" />
+    </div>
+  );
 };
 
 export default RightGraph;

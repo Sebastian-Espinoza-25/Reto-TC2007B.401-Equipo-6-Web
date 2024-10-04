@@ -1,17 +1,17 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import HistoryTable from "../HistoryTable/HistoryTable";
+import EditProductForm from "../ProductTools/EditProductForm";
 import "./AppComun.css";
 
-function AppHistorial() {
+function AppProductForm() {
   return (
     <div className="AppCss">
       <div className="AppGlassNew">
         <Sidebar />
-        <HistoryTable />
+        <EditProductForm />
       </div>
     </div>
   );
 }
 
-export default AppHistorial;
+export default AppProductForm;

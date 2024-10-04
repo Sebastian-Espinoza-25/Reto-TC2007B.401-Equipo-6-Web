@@ -1,33 +1,34 @@
-.MuiTableRow-root>*{
+.MuiTableRow-root>* {
     padding: 10px;
 }
 
-.MuiTableRow-root.MuiTableRow-head>*{
+.MuiTableRow-root.MuiTableRow-head>* {
     font-weight: bold !important;
 }
 
-.Table td, th {
+.Table td,
+th {
     border: none !important;
 }
 
-.Table:first-child{
+.Table:first-child {
     border-radius: 0.7rem !important;
 }
 
-.status{
+.status {
     padding: 8px;
     border-radius: 9px;
 }
 
-@media screen and (max-width: 1200px){
-    .Table{
+@media screen and (max-width: 1200px) {
+    .Table {
         width: 170%;
         margin-top: 2rem;
     }
 }
 
-@media screen and (max-width: 768px){
-    .Table{
+@media screen and (max-width: 768px) {
+    .Table {
         position: relative;
         display: flex;
         flex-direction: column;
