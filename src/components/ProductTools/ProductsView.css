@@ -3,10 +3,13 @@
 }
 
 .search-bar {
-    align-self: right;
-    padding: 1rem;
-    border-radius: 5px;
-    font-size: 1rem;
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .products-view {

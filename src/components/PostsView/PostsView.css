@@ -1,10 +1,19 @@
+.header {
+  display: flex;
+}
+
 .posts-view {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--glass);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--boxShadow);
 }
 
 .posts-view h1 {
-  text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .search-bar {
@@ -21,10 +30,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  max-height: 80vh;
-  overflow-y: auto;
+  height: 70vh;
+  overflow: auto;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 10px;
 }
 
@@ -42,21 +50,28 @@
 }
 
 .post-card img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
 .post-info {
-  text-align: center;
-  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .post-info h2 {
   font-size: 1.2em;
   margin: 10px 0;
+  text-align: center;
 }
 
 .post-info p {
   margin: 5px 0;
+}
+
+.post-summary {
+  text-align: left;
 }
