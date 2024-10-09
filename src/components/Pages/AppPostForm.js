@@ -1,9 +1,9 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import PostForm from "../PostForm/PostForm";
+import PostForm from "../PostsTools/PostForm";
 import "./AppComun.css";
 
-function AppComunidad() {
+function AppPostForm() {
   return (
     <div className="AppCss">
       <div className="AppGlassNew">
@@ -14,4 +14,4 @@ function AppComunidad() {
   );
 }
 
-export default AppComunidad;
+export default AppPostForm;

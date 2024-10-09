@@ -11,10 +11,26 @@ const ProductForm = () => {
     dimensions_height: "",
     image_path: null,
     category: "",
+    disponibility: false,
+  });
+
+  const [imagePreview, setImagePreview] = useState(null);
+  const [imageDimensions, setImageDimensions] = useState({
+    width: 0,
+    height: 0,
   });
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
+    if (name === "image_path" && files.length > 0) {
+      const file = files[0];
+      const image = new Image();
+      image.onload = () => {
+        setImageDimensions({ width: image.width, height: image.height });
+      };
+      image.src = URL.createObjectURL(file);
+      setImagePreview(image.src);
+    }
     setFormData({
       ...formData,
       [name]: files ? files[0] : value,
@@ -31,28 +47,35 @@ const ProductForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.price < 0) {
-      alert("El precio no puede ser un valor negativo.");
-      return;
-    }
-    const dimensions = `${formData.dimensions_width} x ${formData.dimensions_height} cm`;
     const dataToSend = new FormData();
-    dataToSend.append("sku", formData.sku);
-    dataToSend.append("name", formData.name);
-    dataToSend.append("price", formData.price);
-    dataToSend.append("description", formData.description);
-    dataToSend.append("dimensions", dimensions);
-    dataToSend.append("image_path", formData.image_path);
-    dataToSend.append("category", formData.category);
-    dataToSend.append("rating", 0);
+    for (const key in formData) {
+      dataToSend.append(key, formData[key]);
+    }
 
     try {
-      const response = await fetch("http://localhost:3000/api/products", {
-        method: "POST",
-        body: dataToSend,
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/products`,
+        {
+          method: "POST",
+          body: dataToSend,
+        }
+      );
       if (response.ok) {
         alert("Producto creado exitosamente");
+        setFormData({
+          sku: "",
+          name: "",
+          price: "",
+          description: "",
+          dimensions_width: "",
+          dimensions_height: "",
+          image_path: null,
+          category: "",
+          rating: 0,
+          disponibility: false,
+        });
+        setImagePreview(null);
+        setImageDimensions({ width: 0, height: 0 });
       } else {
         alert("Error al crear el producto");
       }
@@ -63,61 +86,83 @@ const ProductForm = () => {
   };
 
   return (
-    <form
-      className="product-form"
-      onSubmit={handleSubmit}
-      encType="multipart/form-data"
-    >
-      <h2>Crear Producto</h2>
-      <input
-        type="text"
-        name="sku"
-        placeholder="SKU"
-        value={formData.sku}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        name="name"
-        placeholder="Nombre"
-        value={formData.name}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="number"
-        name="price"
-        placeholder="Precio"
-        value={formData.price}
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="description"
-        placeholder="Descripción"
-        value={formData.description}
-        onChange={handleChange}
-        required
-        style={{ resize: "none" }}
-      />
-      <div className="dimensions-category">
+    <form className="product-form" onSubmit={handleSubmit}>
+      <div className="left-column">
+        <label>SKU</label>
         <input
-          type="number"
-          name="dimensions_width"
-          placeholder="Ancho (cm)"
-          value={formData.dimensions_width}
-          onChange={handleDimensionsChange}
+          type="text"
+          name="sku"
+          placeholder="SKU"
+          value={formData.sku}
+          onChange={handleChange}
           required
         />
+        <label>Nombre</label>
         <input
-          type="number"
-          name="dimensions_height"
-          placeholder="Alto (cm)"
-          value={formData.dimensions_height}
-          onChange={handleDimensionsChange}
+          type="text"
+          name="name"
+          placeholder="Nombre"
+          value={formData.name}
+          onChange={handleChange}
           required
         />
+        <label>Descripción</label>
+        <textarea
+          name="description"
+          placeholder="Descripción"
+          value={formData.description}
+          onChange={handleChange}
+          className="product-description"
+          required
+        />
+        <div className="dimensions-category">
+          <div>
+            <label>Ancho (cm)</label>
+            <input
+              type="number"
+              name="dimensions_width"
+              placeholder="Ancho (cm)"
+              value={formData.dimensions_width}
+              onChange={handleDimensionsChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Alto (cm)</label>
+            <input
+              type="number"
+              name="dimensions_height"
+              placeholder="Alto (cm)"
+              value={formData.dimensions_height}
+              onChange={handleDimensionsChange}
+              required
+            />
+          </div>
+        </div>
+        <label>Precio</label>
+        <input
+          type="number"
+          name="price"
+          placeholder="Precio"
+          value={formData.price}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="right-column">
+        <label>Imagen</label>
+        <input type="file" name="image_path" onChange={handleChange} required />
+        {imagePreview && (
+          <div className="image-preview">
+            <img src={imagePreview} alt="Vista previa de la imagen" />
+          </div>
+        )}
+        {imagePreview && (
+          <div className="image-dimensions">
+            Dimensiones: {imageDimensions.width} x {imageDimensions.height}
+          </div>
+        )}
+        <label>Categoría</label>
         <select
           name="category"
           value={formData.category}
@@ -133,8 +178,9 @@ const ProductForm = () => {
           </option>
         </select>
       </div>
-      <input type="file" name="image_path" onChange={handleChange} required />
-      <button type="submit">Crear Producto</button>
+      <button type="submit" className="submit-button">
+        Crear Producto
+      </button>
     </form>
   );
 };

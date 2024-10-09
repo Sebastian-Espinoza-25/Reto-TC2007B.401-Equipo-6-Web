@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 import AppOrdenes from "./components/Pages/AppOrdenes";
 import AppHistorial from "./components/Pages/AppHistorial";
 import AppProductos from "./components/Pages/AppProductos";
-import AppComunidades from "./components/Pages/AppComunidades";
+import AppPostForm from "./components/Pages/AppPostForm";
+import AppEditPostForm from "./components/Pages/AppEditPostForm";
 import AppProductForm from "./components/Pages/AppProductForm";
 import AppEditProductForm from "./components/Pages/AppEditProductForm";
 import AppPosts from "./components/Pages/AppPosts";
@@ -25,24 +26,28 @@ const router = createBrowserRouter([
     element: <AppHistorial />,
   },
   {
-    path: "/appproductos",
+    path: "/viewproducts",
     element: <AppProductos />,
   },
   {
-    path: "/productform",
+    path: "/newprodcut",
     element: <AppProductForm />,
   },
   {
-    path: "/editproductform",
+    path: "/editproduct",
     element: <AppEditProductForm />,
   },
   {
-    path: "/appcomunidades",
-    element: <AppComunidades />,
+    path: "/viewposts",
+    element: <AppPosts />,
   },
   {
-    path: "/appposts",
-    element: <AppPosts />,
+    path: "/newpost",
+    element: <AppPostForm />,
+  },
+  {
+    path: "/editposts",
+    element: <AppEditPostForm />,
   },
 ]);
 

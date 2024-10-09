@@ -52,7 +52,7 @@ const PostForm = () => {
 
   return (
     <form className="post-form" onSubmit={handleSubmit}>
-      <h2>Crear Post</h2>
+      <h2>Editar Post</h2>
       <input
         type="text"
         name="title"

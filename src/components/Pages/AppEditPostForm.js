@@ -1,17 +1,17 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import PostsView from "../PostsTools/PostsView";
+import EditPostForm from "../PostsTools/EditPostForm";
 import "./AppComun.css";
 
-const AppPosts = () => {
+function AppPostForm() {
   return (
     <div className="AppCss">
       <div className="AppGlassNew">
         <Sidebar />
-        <PostsView />
+        <EditPostForm />
       </div>
     </div>
   );
-};
+}
 
-export default AppPosts;
+export default AppPostForm;

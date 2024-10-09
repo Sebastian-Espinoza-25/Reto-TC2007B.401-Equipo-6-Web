@@ -63,7 +63,7 @@ const PostsView = () => {
   return (
     <div className="posts-view">
       <div className="header">
-        <h2>Lista de Productos</h2>
+        <h2>Lista de Posts</h2>
         <input
           type="text"
           placeholder="Buscar por titulo"

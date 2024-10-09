@@ -1,8 +1,8 @@
 //Sidebar Imports to display yhe icons
 import {
   UilEstate,
-  UilClipboardAlt,
-  UilDiary,
+  // UilClipboardAlt,
+  // UilDiary,
   UilShoppingBag,
   UilChat,
   UilUsdSquare,
@@ -19,40 +19,45 @@ export const SidebarData = [
     heading: "Dashboard",
     path: "/",
   },
-  {
-    icon: UilClipboardAlt,
-    heading: "Envíos",
-    path: "/appordenes",
-  },
-  {
-    icon: UilDiary,
-    heading: "Historial de ventas",
-    path: "/appventas",
-  },
+  // {
+  //   icon: UilClipboardAlt,
+  //   heading: "Envíos",
+  //   path: "/appordenes",
+  // },
+  // {
+  //   icon: UilDiary,
+  //   heading: "Historial de ventas",
+  //   path: "/appventas",
+  // },
   {
     icon: UilEnvelope,
     heading: "Productos",
-    path: "/appproductos",
+    path: "/viewproducts",
   },
   {
     icon: UilShoppingBag,
     heading: "Nuevo Producto",
-    path: "/productform",
+    path: "/newprodcut",
   },
   {
     icon: UilShoppingBag,
     heading: "Editar Producto",
-    path: "/editproductform",
-  },
-  {
-    icon: UilChat,
-    heading: "Comunidades",
-    path: "/appcomunidades",
+    path: "/editproduct",
   },
   {
     icon: UilEnvelope,
     heading: "Posts",
-    path: "/appposts",
+    path: "/viewposts",
+  },
+  {
+    icon: UilChat,
+    heading: "Nuevo Posts",
+    path: "/newpost",
+  },
+  {
+    icon: UilChat,
+    heading: "Editar Posts",
+    path: "/editposts",
   },
 ];
 

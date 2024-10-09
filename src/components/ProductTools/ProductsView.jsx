@@ -8,7 +8,9 @@ const ProductsView = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/products");
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/products`
+        );
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -34,7 +36,7 @@ const ProductsView = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/products/sku/${sku}`,
+          `${process.env.REACT_APP_API_URL}/products/sku/${sku}`,
           {
             method: "DELETE",
           }
@@ -57,7 +59,33 @@ const ProductsView = () => {
     });
     setProducts(updatedProducts);
 
-    // TODO: Lógica para actualizar el estado del producto en la base de datos
+    try {
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/products/sku/${sku}/status`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              status: !updatedProducts.find((product) => product.sku === sku)
+                .enabled,
+            }),
+          }
+        );
+        if (!response.ok) {
+            throw new Error("Error al habilitar/deshabilitar el producto");
+        } else {
+            console.log(
+              JSON.stringify({
+                status: !updatedProducts.find((product) => product.sku === sku)
+                  .enabled,
+              })
+            );
+        }
+    } catch (error) {
+        console.error("Error al habilitar/deshabilitar el producto:", error);
+    }
   };
 
   return (
@@ -75,28 +103,27 @@ const ProductsView = () => {
       <div className="products-container">
         {filteredProducts.map((product) => (
           <div className="product-card" key={product.sku}>
-            <img
-              src={`http://localhost${product.image_path}`}
-              alt={product.name}
-            />
+            <img src={product.image_path} alt={product.name} />
             <div className="product-info">
               <h2>{product.name}</h2>
               <p className="product-description">{product.description}</p>
+              <p className="product-dimensions">Dimensiones: {product.dimensions}</p>
+              <p className="product-category">Categoría: {product.category}</p>
               <p className="product-price">Precio: ${product.price}</p>
               <div className="product-actions">
                 <button
                   className="delete-button"
                   onClick={() => handleDelete(product.sku)}
                 >
-                  ❌
+                  ELIMINAR PRODUCTO ❌
                 </button>
                 <button
                   className={`toggle-button ${
-                    product.enabled ? "enabled" : "disabled"
+                    product.enabled ? "disabled" : "enabled"
                   }`}
                   onClick={() => toggleProductStatus(product.sku)}
                 >
-                  {product.enabled ? "Deshabilitar" : "Habilitar"}
+                  {product.enabled ? "NO DISNPONIBLE" : "DISPOINBLE"}
                 </button>
               </div>
             </div>
