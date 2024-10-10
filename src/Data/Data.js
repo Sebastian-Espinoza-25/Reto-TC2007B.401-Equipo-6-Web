@@ -1,4 +1,3 @@
-//Sidebar Imports to display yhe icons
 import {
   UilEstate,
   // UilClipboardAlt,
