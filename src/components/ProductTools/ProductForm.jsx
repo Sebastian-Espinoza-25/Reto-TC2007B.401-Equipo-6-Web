@@ -170,10 +170,10 @@ const ProductForm = () => {
           required
         >
           <option value="">Selecciona una categoría</option>
-          <option value="toallas-regulares">Toallas Regulares</option>
-          <option value="toallas-nocturnas">Toallas Nocturnas</option>
-          <option value="toallas-teen">Toallas Teen</option>
-          <option value="pantiprotectores-diarios">
+          <option value="regulares">Toallas Regulares</option>
+          <option value="nocturnas">Toallas Nocturnas</option>
+          <option value="teen">Toallas Teen</option>
+          <option value="pantiprotectores">
             Pantiprotectores Diarios
           </option>
         </select>

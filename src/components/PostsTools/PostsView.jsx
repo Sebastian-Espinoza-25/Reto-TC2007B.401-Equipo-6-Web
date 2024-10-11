@@ -34,7 +34,7 @@ const PostsView = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/post//posts/${post_id}`,
+          `${process.env.REACT_APP_API_URL}/products/${post_id}`,
           {
             method: "DELETE",
           }
@@ -75,7 +75,7 @@ const PostsView = () => {
       <div className="posts-container">
         {filteredPosts.map((post) => (
           <div className="post-card" key={post.post_id}>
-            <img src={`http://localhost/${post.file_path}`} alt={post.title} />
+            <img src={`${post.image_path}`} alt={post.title} />
             <div className="post-info">
               <h2>{post.title}</h2>
               <p className="post-summary">{post.summary}</p>
