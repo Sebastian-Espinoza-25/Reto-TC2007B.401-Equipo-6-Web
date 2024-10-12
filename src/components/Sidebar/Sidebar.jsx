@@ -1,9 +1,9 @@
 import React from "react";
-import Logo from "../../imgs/zazil.png";
+// import Logo from "../../imgs/zazil.png";
 import "./Sidebar.css";
 
 import { SidebarData } from "../../Data/Data";
-import { UilSignOutAlt, UilBars } from "@iconscout/react-unicons";
+import { UilSignout, UilBars } from "@iconscout/react-unicons";
 
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
@@ -51,8 +51,8 @@ const Sidebar = () => {
       >
         {/* logo */}
         <div className="logo">
-          <img src={Logo} alt="logo" />
-          <span>ZAZIL</span>
+          {/* <img src={Logo} alt="logo" /> */}
+          <span>ZAZIL APP</span>
         </div>
         {/* menu */}
         <div className="menu">
@@ -85,7 +85,7 @@ const Sidebar = () => {
               to="/404"
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              <UilSignOutAlt />
+              <UilSignout />
             </Link>
           </div>
         </div>

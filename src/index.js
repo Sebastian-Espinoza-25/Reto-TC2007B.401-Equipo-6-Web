@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import AppOrders from "./components/Pages/AppOrders";
+import AppUsers from "./components/Pages/AppUsers";
+import AppPartners from "./components/Pages/AppPartners";
 import AppProducto from "./components/Pages/AppProducto";
 import AppComunity from "./components/Pages/AppComunity";
+import AppProfile from "./components/Pages/AppProfile";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -13,15 +17,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/ordenes",
-    element: <App />,
+    element: <AppOrders />,
   },
   {
     path: "/users",
-    element: <App />,
+    element: <AppUsers />,
   },
   {
     path: "/partners",
-    element: <App />,
+    element: <AppPartners />,
   },
   {
     path: "/products",
@@ -33,7 +37,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/config",
-    element: <App />,
+    element: <AppProfile />,
   },
 ]);
 

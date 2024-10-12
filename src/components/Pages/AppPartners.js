@@ -1,17 +1,18 @@
 import React from "react";
+import PartnerTable from "../PartnerTools/PartnerTable";
 import Sidebar from "../Sidebar/Sidebar";
-import Posts from "../PostsTools/Posts";
+
 import "./AppComun.css";
 
-const AppComunity = () => {
+function AppPartners() {
   return (
     <div className="AppCss">
       <div className="AppGlass">
         <Sidebar />
-        <Posts />
+        <PartnerTable />
       </div>
     </div>
   );
-};
+}
 
-export default AppComunity;
+export default AppPartners;

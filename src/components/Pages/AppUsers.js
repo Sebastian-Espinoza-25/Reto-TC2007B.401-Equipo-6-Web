@@ -1,17 +1,17 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import Posts from "../PostsTools/Posts";
+import UserTable from "../UserTools/UserTable";
 import "./AppComun.css";
 
-const AppComunity = () => {
+function AppUsers() {
   return (
     <div className="AppCss">
       <div className="AppGlass">
         <Sidebar />
-        <Posts />
+        <UserTable />
       </div>
     </div>
   );
-};
+}
 
-export default AppComunity;
+export default AppUsers;

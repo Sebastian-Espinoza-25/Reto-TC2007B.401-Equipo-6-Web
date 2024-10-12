@@ -102,6 +102,7 @@ const ProductsView = () => {
               <p className="dimensions">Dimensiones: {product.dimensions}</p>
               <p className="category">Categoría: {product.category}</p>
               <p className="price">Precio: ${product.price}</p>
+              <p className="sku">SKU: {product.sku}</p>
               <div className="actions">
                 <button
                   className={`toggle-button ${

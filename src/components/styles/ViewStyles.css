@@ -60,7 +60,8 @@
     margin: 5px 0;
 }
 
-.summary {
+.summary,
+.desceiption {
     text-align: left;
     max-height: 100px;
     overflow-y: auto;
@@ -70,7 +71,8 @@
 .date,
 .author,
 .price,
-.dimensions {
+.dimensions,
+.sku {
     text-align: right;
     font-size: 0.8em;
     font-weight: bold;

@@ -1,38 +1,46 @@
-import { UilEnvelope } from "@iconscout/react-unicons";
+import {
+  UilDashboard,
+  UilBox,
+  UilUser,
+  UilUsersAlt,
+  UilPricetagAlt,
+  UilFastMail,
+  UilSetting,
+} from "@iconscout/react-unicons";
 
 export const SidebarData = [
   {
-    icon: UilEnvelope,
+    icon: UilDashboard,
     heading: "Dashboard",
     path: "/",
   },
   {
-    icon: UilEnvelope,
+    icon: UilBox,
     heading: "Órdenes",
     path: "/ordenes",
   },
   {
-    icon: UilEnvelope,
+    icon: UilUser,
     heading: "Usuarios",
     path: "/users",
   },
   {
-    icon: UilEnvelope,
+    icon: UilUsersAlt,
     heading: "Colaboradores",
     path: "/partners",
   },
   {
-    icon: UilEnvelope,
+    icon: UilPricetagAlt,
     heading: "Productos",
     path: "/products",
   },
   {
-    icon: UilEnvelope,
+    icon: UilFastMail,
     heading: "Comunidad",
     path: "/comnuity",
   },
   {
-    icon: UilEnvelope,
+    icon: UilSetting,
     heading: "Perfil",
     path: "/config",
   },

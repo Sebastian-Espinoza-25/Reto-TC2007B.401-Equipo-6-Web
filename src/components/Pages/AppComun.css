@@ -22,32 +22,3 @@
     align-items: center;
     font-family: 'Inter', sans-serif;
 }
-
-.AppGlassNew {
-    display: grid;
-    height: 96%;
-    width: 96%;
-    border-radius: 2rem;
-    background: var(--glass);
-    overflow: hidden;
-    grid-template-columns: 14rem auto;
-    gap: 10px;
-}
-
-@media screen and (max-width: 1200px) {
-    .AppGlassNew {
-        grid-template-columns: 10% 50% auto;
-        overflow-y: scroll;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-    .AppGlassNew {
-        grid-template-columns: 1fr;
-    }
-
-    .appGlassNew::-webkit-scrollbar {
-        display: none;
-    }
-}
