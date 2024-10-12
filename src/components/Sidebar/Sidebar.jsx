@@ -79,9 +79,14 @@ const Sidebar = () => {
               </Link>
             );
           })}
-
+          {/* AQUÍ VA EL LOGOUT */}
           <div className="menuItem">
-            <UilSignOutAlt />
+            <Link
+              to="/404"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <UilSignOutAlt />
+            </Link>
           </div>
         </div>
       </motion.div>

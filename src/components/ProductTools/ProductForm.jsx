@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./FormStyles.css";
+import "../styles/FormStyles.css";
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -80,13 +80,12 @@ const ProductForm = () => {
         alert("Error al crear el producto");
       }
     } catch (error) {
-      console.error("Error:", error);
       alert("Error al crear el producto");
     }
   };
 
   return (
-    <form className="product-form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="left-column">
         <label>SKU</label>
         <input
@@ -112,7 +111,7 @@ const ProductForm = () => {
           placeholder="Descripción"
           value={formData.description}
           onChange={handleChange}
-          className="product-description"
+          className="description"
           required
         />
         <div className="dimensions-category">
@@ -172,14 +171,12 @@ const ProductForm = () => {
           <option value="">Selecciona una categoría</option>
           <option value="regulares">Toallas Regulares</option>
           <option value="nocturnas">Toallas Nocturnas</option>
-          <option value="teen">Toallas Teen</option>
-          <option value="pantiprotectores">
-            Pantiprotectores Diarios
-          </option>
+          <option value="teens">Toallas Teen</option>
+          <option value="pantiprotectores">Pantiprotectores Diarios</option>
         </select>
       </div>
       <button type="submit" className="submit-button">
-        Crear Producto
+        CREAR PRODUCTO
       </button>
     </form>
   );

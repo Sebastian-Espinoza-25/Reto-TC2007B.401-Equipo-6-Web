@@ -1,0 +1,35 @@
+.view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--glass);
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: var(--boxShadow);
+    overflow: auto;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.buttons button {
+    padding: 5px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    font-size: 10px;
+}
+
+.buttons button.active {
+    background-color: #2e7d32;
+    font-weight: bold;
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}

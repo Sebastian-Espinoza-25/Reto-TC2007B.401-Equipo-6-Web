@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ProductsView.css";
+import "../styles/ViewStyles.css";
 
 const ProductsView = () => {
   const [products, setProducts] = useState([]);
@@ -60,38 +60,30 @@ const ProductsView = () => {
     setProducts(updatedProducts);
 
     try {
-        const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/products/sku/${sku}/status`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              status: !updatedProducts.find((product) => product.sku === sku)
-                .enabled,
-            }),
-          }
-        );
-        if (!response.ok) {
-            throw new Error("Error al habilitar/deshabilitar el producto");
-        } else {
-            console.log(
-              JSON.stringify({
-                status: !updatedProducts.find((product) => product.sku === sku)
-                  .enabled,
-              })
-            );
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/products/sku/${sku}/status`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            status: !updatedProducts.find((product) => product.sku === sku)
+              .enabled,
+          }),
         }
+      );
+      if (!response.ok) {
+        throw new Error("Error al habilitar/deshabilitar el producto");
+      }
     } catch (error) {
-        console.error("Error al habilitar/deshabilitar el producto:", error);
+      console.error("Error al habilitar/deshabilitar el producto:", error);
     }
   };
 
   return (
-    <div className="products-view">
+    <div className="view">
       <div className="header">
-        <h2>Lista de Productos</h2>
         <input
           type="text"
           placeholder="Buscar por nombre"
@@ -100,30 +92,30 @@ const ProductsView = () => {
           className="search-bar"
         />
       </div>
-      <div className="products-container">
+      <div className="container">
         {filteredProducts.map((product) => (
-          <div className="product-card" key={product.sku}>
+          <div className="card" key={product.sku}>
             <img src={product.image_path} alt={product.name} />
-            <div className="product-info">
-              <h2>{product.name}</h2>
-              <p className="product-description">{product.description}</p>
-              <p className="product-dimensions">Dimensiones: {product.dimensions}</p>
-              <p className="product-category">Categoría: {product.category}</p>
-              <p className="product-price">Precio: ${product.price}</p>
-              <div className="product-actions">
-                <button
-                  className="delete-button"
-                  onClick={() => handleDelete(product.sku)}
-                >
-                  ELIMINAR PRODUCTO ❌
-                </button>
+            <div className="info">
+              <h3>{product.name}</h3>
+              <p className="description">{product.description}</p>
+              <p className="dimensions">Dimensiones: {product.dimensions}</p>
+              <p className="category">Categoría: {product.category}</p>
+              <p className="price">Precio: ${product.price}</p>
+              <div className="actions">
                 <button
                   className={`toggle-button ${
                     product.enabled ? "disabled" : "enabled"
                   }`}
                   onClick={() => toggleProductStatus(product.sku)}
                 >
-                  {product.enabled ? "NO DISNPONIBLE" : "DISPOINBLE"}
+                  {product.enabled ? "NO DISPONIBLE" : "DISPONIBLE"}
+                </button>
+                <button
+                  className="delete-button"
+                  onClick={() => handleDelete(product.sku)}
+                >
+                  ELIMINAR ❌
                 </button>
               </div>
             </div>

@@ -1,17 +1,17 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import EditProductForm from "../ProductTools/EditProductForm";
+import Posts from "../PostsTools/Posts";
 import "./AppComun.css";
 
-function AppProductForm() {
+const AppComunity = () => {
   return (
     <div className="AppCss">
       <div className="AppGlassNew">
         <Sidebar />
-        <EditProductForm />
+        <Posts />
       </div>
     </div>
   );
-}
+};
 
-export default AppProductForm;
+export default AppComunity;

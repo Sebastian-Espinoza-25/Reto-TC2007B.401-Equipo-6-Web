@@ -1,14 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import AppOrdenes from "./components/Pages/AppOrdenes";
-import AppHistorial from "./components/Pages/AppHistorial";
-import AppProductos from "./components/Pages/AppProductos";
-import AppPostForm from "./components/Pages/AppPostForm";
-import AppEditPostForm from "./components/Pages/AppEditPostForm";
-import AppProductForm from "./components/Pages/AppProductForm";
-import AppEditProductForm from "./components/Pages/AppEditProductForm";
-import AppPosts from "./components/Pages/AppPosts";
+import AppProducto from "./components/Pages/AppProducto";
+import AppComunity from "./components/Pages/AppComunity";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -18,36 +12,28 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/appordenes",
-    element: <AppOrdenes />,
+    path: "/ordenes",
+    element: <App />,
   },
   {
-    path: "/appventas",
-    element: <AppHistorial />,
+    path: "/users",
+    element: <App />,
   },
   {
-    path: "/viewproducts",
-    element: <AppProductos />,
+    path: "/partners",
+    element: <App />,
   },
   {
-    path: "/newprodcut",
-    element: <AppProductForm />,
+    path: "/products",
+    element: <AppProducto />,
   },
   {
-    path: "/editproduct",
-    element: <AppEditProductForm />,
+    path: "/comnuity",
+    element: <AppComunity />,
   },
   {
-    path: "/viewposts",
-    element: <AppPosts />,
-  },
-  {
-    path: "/newpost",
-    element: <AppPostForm />,
-  },
-  {
-    path: "/editposts",
-    element: <AppEditPostForm />,
+    path: "/config",
+    element: <App />,
   },
 ]);
 

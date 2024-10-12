@@ -1,17 +1,18 @@
+// web/src/components/Pages/AppProducto.js
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import PostForm from "../PostsTools/PostForm";
+import Products from "../ProductTools/Products";
 import "./AppComun.css";
 
-function AppPostForm() {
+function AppProducto() {
   return (
     <div className="AppCss">
       <div className="AppGlassNew">
         <Sidebar />
-        <PostForm />
+        <Products />
       </div>
     </div>
   );
 }
 
-export default AppPostForm;
+export default AppProducto;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./PostsView.css";
+import "../styles/ViewStyles.css";
 
 const PostsView = () => {
   const [posts, setPosts] = useState([]);
@@ -34,7 +34,7 @@ const PostsView = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/products/${post_id}`,
+          `${process.env.REACT_APP_API_URL}/Posts/${post_id}`,
           {
             method: "DELETE",
           }
@@ -48,53 +48,39 @@ const PostsView = () => {
     }
   };
 
-  const togglePostStatus = async (post_id) => {
-    const updatedPosts = posts.map((post) => {
-      if (post.post_id === post_id) {
-        return { ...post, enabled: !post.enabled };
-      }
-      return post;
-    });
-    setPosts(updatedPosts);
-
-    // TODO: Lógica para actualizar el estado del producto en la base de datos
-  };
-
   return (
-    <div className="posts-view">
-      <div className="header">
-        <h2>Lista de Posts</h2>
-        <input
-          type="text"
-          placeholder="Buscar por titulo"
-          value={searchTerm}
-          onChange={handleSearch}
-          className="search-bar"
-        />
-      </div>
-      <div className="posts-container">
+    <div className="view">
+      <input
+        type="text"
+        placeholder="Buscar por titulo"
+        value={searchTerm}
+        onChange={handleSearch}
+        className="search-bar"
+      />
+      <div className="container">
         {filteredPosts.map((post) => (
-          <div className="post-card" key={post.post_id}>
+          <div className="card" key={post.post_id}>
             <img src={`${post.image_path}`} alt={post.title} />
-            <div className="post-info">
-              <h2>{post.title}</h2>
-              <p className="post-summary">{post.summary}</p>
-              <p>Categoría: {post.category}</p>
-              <p>Fecha: {post.date}</p>
-              <button
-                className="delete-button"
-                onClick={() => handleDelete(post.post_id)}
-              >
-                ❌
-              </button>
-              <button
-                className={`toggle-button ${
-                  post.enabled ? "enabled" : "disabled"
-                }`}
-                onClick={() => togglePostStatus(post.post_id)}
-              >
-                {posts.enabled ? "Deshabilitar" : "Habilitar"}
-              </button>
+            <div className="info">
+              <h3>{post.title}</h3>
+              <p className="summary">{post.summary}</p>
+              <p className="category">Categoría: {post.category}</p>
+              <p className="date">Fecha: {post.date}</p>
+              <p className="author">Autor: {post.partner_email}</p>
+              <div className="actions">
+                <button
+                  className="view-post"
+                  onClick={() => window.open(post.file_path, "_blank")}
+                >
+                  POST COMPLETO 📄
+                </button>
+                <button
+                  className="delete-button"
+                  onClick={() => handleDelete(post.post_id)}
+                >
+                  ELIMINAR ❌
+                </button>
+              </div>
             </div>
           </div>
         ))}

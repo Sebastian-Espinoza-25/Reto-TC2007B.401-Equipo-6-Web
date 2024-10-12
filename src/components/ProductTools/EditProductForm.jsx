@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./FormStyles.css";
+import "../styles/FormStyles.css";
 
 const EditProductForm = () => {
   const [formData, setFormData] = useState({
@@ -86,7 +86,7 @@ const EditProductForm = () => {
   };
 
   return (
-    <form className="product-form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="left-column">
         <label>SKU</label>
         <input
@@ -112,7 +112,7 @@ const EditProductForm = () => {
           placeholder="Descripción"
           value={formData.description}
           onChange={handleChange}
-          className="product-description"
+          className="description"
           required
         />
         <div className="dimensions-category">
@@ -173,13 +173,11 @@ const EditProductForm = () => {
           <option value="regulares">Toallas Regulares</option>
           <option value="nocturnas">Toallas Nocturnas</option>
           <option value="teen">Toallas Teen</option>
-          <option value="pantiprotectores">
-            Pantiprotectores Diarios
-          </option>
+          <option value="pantiprotectores">Pantiprotectores Diarios</option>
         </select>
       </div>
       <button type="submit" className="submit-button">
-        Crear Producto
+        EDITAR PRODUCTO
       </button>
     </form>
   );
