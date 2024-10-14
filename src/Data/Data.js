@@ -12,7 +12,7 @@ export const SidebarData = [
   {
     icon: UilDashboard,
     heading: "Dashboard",
-    path: "/",
+    path: "/dashboard",
   },
   {
     icon: UilBox,

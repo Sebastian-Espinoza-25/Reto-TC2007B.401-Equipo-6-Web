@@ -10,34 +10,68 @@ import AppProfile from "./components/Pages/AppProfile";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import PrivateRoute from "./components/Pages/PrivateRoute";
+import AppLogin from "./components/Pages/AppLogin";
+
+const userRole = "expert"; //Dummy role
+
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <AppLogin />,
+    //AQUI FALTA EL LOGIN
+  },
+  {
+    path: "/dashboard",
     element: <App />,
   },
   {
     path: "/ordenes",
-    element: <AppOrders />,
+    element: (
+      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+        <AppOrders />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/users",
-    element: <AppUsers />,
+    element: (
+      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+        <AppUsers />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/partners",
-    element: <AppPartners />,
+    element: (
+      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+        <AppPartners />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/products",
-    element: <AppProducto />,
+    element: (
+      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+        <AppProducto />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/comnuity",
-    element: <AppComunity />,
+    element: (
+      <PrivateRoute allowedRoles={["expert", "admin"]} userRole={userRole}>
+        <AppComunity />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/config",
-    element: <AppProfile />,
+    element: (
+      <PrivateRoute allowedRoles={["expert","admin"]} userRole={userRole}>
+        <AppProfile />
+      </PrivateRoute>
+    ),
   },
 ]);
 

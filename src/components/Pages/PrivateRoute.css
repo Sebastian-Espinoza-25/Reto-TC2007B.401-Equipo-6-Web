@@ -1,0 +1,51 @@
+.Background{
+    background: linear-gradient(106.37deg,
+            #F8B8AF 10.85%,
+            #D5507C 90.63%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.BackgroundGlass{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ButtonsAccess{
+    display: flex;
+    width: 60%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 40px;
+    border: none;
+    box-shadow: #D5507C 0px 0px 10px;
+    color: black;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+    &:hover {
+        background: #D5507C;
+        color: white;
+    }
+}
+
+.texto1{
+    font-size: 20px;
+    font-weight: 800;
+    color: #D5507C;
+    margin-top: 20px;
+}
+
+.texto2{
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 20px;
+}
