@@ -1,4 +1,5 @@
 import React from "react";
+import Profile from "../ProfileTools/Profile";
 import Sidebar from "../Sidebar/Sidebar";
 
 import "./AppComun.css";
@@ -8,6 +9,7 @@ function AppProfile() {
     <div className="AppCss">
       <div className="AppGlass">
         <Sidebar />
+        <Profile />
       </div>
     </div>
   );

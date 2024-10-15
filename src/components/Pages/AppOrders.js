@@ -1,5 +1,5 @@
 import React from "react";
-import OrdersTable from "../OrderTools/OrderTable";
+import Orders from "../OrderTools/Orders";
 import Sidebar from "../Sidebar/Sidebar";
 
 import "./AppComun.css";
@@ -9,7 +9,7 @@ function AppOrders() {
     <div className="AppCss">
       <div className="AppGlass">
         <Sidebar />
-        <OrdersTable />
+        <Orders />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import PartnerTable from "../PartnerTools/PartnerTable";
+import Partners from "../PartnerTools/Partners";
 import Sidebar from "../Sidebar/Sidebar";
 
 import "./AppComun.css";
@@ -9,7 +9,7 @@ function AppPartners() {
     <div className="AppCss">
       <div className="AppGlass">
         <Sidebar />
-        <PartnerTable />
+        <Partners />
       </div>
     </div>
   );

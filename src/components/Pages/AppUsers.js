@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import UserTable from "../UserTools/UserTable";
+import Users from "../UserTools/Users";
 import "./AppComun.css";
 
 function AppUsers() {
@@ -8,7 +8,7 @@ function AppUsers() {
     <div className="AppCss">
       <div className="AppGlass">
         <Sidebar />
-        <UserTable />
+        <Users />
       </div>
     </div>
   );

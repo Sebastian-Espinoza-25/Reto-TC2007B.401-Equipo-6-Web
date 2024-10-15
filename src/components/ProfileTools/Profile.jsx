@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import PartnerTable from "./PartnerTable";
-import PartnerForm from "./PartnerForm";
-import EditPartnerForm from "./EditPartnerForm";
+import ProfileView from "./ProfileView";
+import EditProfileForm from "./EditProfileForm";
 import "../styles/GeneralStyles.css";
 
-const Products = () => {
+const Posts = () => {
   const [currentView, setCurrentView] = useState("view");
 
   const renderView = () => {
     switch (currentView) {
       case "view":
-        return <PartnerTable />;
-      case "create":
-        return <PartnerForm />;
+        return <ProfileView />;
       case "edit":
-        return <EditPartnerForm />;
+        return <EditProfileForm />;
       default:
-        return <PartnerTable />;
+        return <ProfileView />;
     }
   };
 
@@ -28,19 +25,13 @@ const Products = () => {
             onClick={() => setCurrentView("view")}
             className={currentView === "view" ? "active" : ""}
           >
-            Ver Colaboradores
-          </button>
-          <button
-            onClick={() => setCurrentView("create")}
-            className={currentView === "create" ? "active" : ""}
-          >
-            Agregar Colaborador
+            Ver Posts
           </button>
           <button
             onClick={() => setCurrentView("edit")}
             className={currentView === "edit" ? "active" : ""}
           >
-            Editar Colaborador
+            Editar Post
           </button>
         </div>
       </div>
@@ -49,4 +40,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Posts;

@@ -25,6 +25,16 @@ const PartnerTable = () => {
     fetchPartners();
   }, []);
 
+  const handleToggleAccountStatus = (email) => {
+    // ! Lógica para habilitar/deshabilitar cuenta
+    console.log(`Toggle account status for ${email}`);
+  };
+
+  const handleDeleteAccount = (email) => {
+    // ! Lógica para eliminar cuenta
+    console.log(`Delete account for ${email}`);
+  };
+
   return (
     <TableContainer component={Paper} style={{ boxShadow: "0px 13px 20px 0px #80808029" }}>
       <Table sx={{ minWidth: 650 }} aria-label="partner table">
@@ -36,6 +46,7 @@ const PartnerTable = () => {
             <TableCell>Estado de la Cuenta</TableCell>
             <TableCell>Tipo de Cuenta</TableCell>
             <TableCell>Fecha de Nacimiento</TableCell>
+            <TableCell>Acciones</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -49,6 +60,14 @@ const PartnerTable = () => {
               <TableCell>{partner.account_status}</TableCell>
               <TableCell>{partner.account_type}</TableCell>
               <TableCell>{partner.birth_date}</TableCell>
+              <TableCell>
+                <button onClick={() => handleToggleAccountStatus(partner.email)}>
+                  {partner.account_status === "enabled" ? "Deshabilitar" : "Habilitar"}
+                </button>
+                <button onClick={() => handleDeleteAccount(partner.email)}>
+                  Eliminar
+                </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
