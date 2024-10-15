@@ -13,13 +13,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PrivateRoute from "./components/Pages/PrivateRoute";
 import AppLogin from "./components/Pages/AppLogin";
 
-const userRole = "expert"; //Dummy role
-
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <AppLogin />,
-    //AQUI FALTA EL LOGIN
+    element: <AppLogin onLogin={(role) => { localStorage.setItem('userRole', role); }} />, // Guardar el rol al iniciar sesión
   },
   {
     path: "/dashboard",
@@ -28,7 +25,7 @@ const router = createBrowserRouter([
   {
     path: "/ordenes",
     element: (
-      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+      <PrivateRoute allowedRoles={["admin"]} userRole={localStorage.getItem('userRole')}>
         <AppOrders />
       </PrivateRoute>
     ),
@@ -36,7 +33,7 @@ const router = createBrowserRouter([
   {
     path: "/users",
     element: (
-      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+      <PrivateRoute allowedRoles={["admin"]} userRole={localStorage.getItem('userRole')}>
         <AppUsers />
       </PrivateRoute>
     ),
@@ -44,7 +41,7 @@ const router = createBrowserRouter([
   {
     path: "/partners",
     element: (
-      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+      <PrivateRoute allowedRoles={["admin"]} userRole={localStorage.getItem('userRole')}>
         <AppPartners />
       </PrivateRoute>
     ),
@@ -52,7 +49,7 @@ const router = createBrowserRouter([
   {
     path: "/products",
     element: (
-      <PrivateRoute allowedRoles={["admin"]} userRole={userRole}>
+      <PrivateRoute allowedRoles={["admin"]} userRole={localStorage.getItem('userRole')}>
         <AppProducto />
       </PrivateRoute>
     ),
@@ -60,7 +57,7 @@ const router = createBrowserRouter([
   {
     path: "/comnuity",
     element: (
-      <PrivateRoute allowedRoles={["expert", "admin"]} userRole={userRole}>
+      <PrivateRoute allowedRoles={["expert", "admin"]} userRole={localStorage.getItem('userRole')}>
         <AppComunity />
       </PrivateRoute>
     ),
@@ -68,7 +65,7 @@ const router = createBrowserRouter([
   {
     path: "/config",
     element: (
-      <PrivateRoute allowedRoles={["expert","admin"]} userRole={userRole}>
+      <PrivateRoute allowedRoles={["expert", "admin"]} userRole={localStorage.getItem('userRole')}>
         <AppProfile />
       </PrivateRoute>
     ),

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UilExclamationTriangle } from '@iconscout/react-unicons'; // Import the warning icon
+import { UilExclamationTriangle } from '@iconscout/react-unicons'; // Importar el icono de advertencia
 import "./PrivateRoute.css";
 
-// This component protects routes based on user role
-const PrivateRoute = ({ children, allowedRoles, userRole }) => {
+const PrivateRoute = ({ children, allowedRoles }) => {
   const [showUnauthorizedModal, setShowUnauthorizedModal] = useState(false);
   const navigate = useNavigate();
+  const userRole = localStorage.getItem('userRole'); // Obtener el rol del localStorage directamente aquí
 
   useEffect(() => {
     // Trigger unauthorized modal if user role is not allowed
@@ -16,15 +16,13 @@ const PrivateRoute = ({ children, allowedRoles, userRole }) => {
   }, [allowedRoles, userRole]);
 
   const handleRetryLogin = () => {
-    // Logic for retry login, redirect to login or another page
     setShowUnauthorizedModal(false);
-    navigate("/"); // You can navigate to the login page or home
+    navigate("/"); // Redirigir a la página de inicio de sesión
   };
 
   const handleCloseModal = () => {
-    // When closing modal, redirect to previous page or block navigation
     setShowUnauthorizedModal(false);
-    navigate(-1); // Go back to the previous page
+    navigate("/dashboard"); // Volver a la página anterior
   };
 
   return allowedRoles.includes(userRole) ? (
@@ -41,7 +39,7 @@ const PrivateRoute = ({ children, allowedRoles, userRole }) => {
   );
 };
 
-// Modal component to display unauthorized message
+// Modal para mostrar el mensaje no autorizado
 const UnauthorizedModal = ({ onClose, onRetryLogin }) => {
   return (
     <div className="Background">

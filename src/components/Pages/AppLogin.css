@@ -1,0 +1,26 @@
+.BackgroundLogin{
+    background: linear-gradient(106.37deg,
+            #F8B8AF 10.85%,
+            #D5507C 90.63%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.TitleLogin{
+    font-size: 35px;
+    font-weight: 600;
+    color: black;
+    margin: 20px;
+}	
+
+.SubTitleLogin{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+    
+}
