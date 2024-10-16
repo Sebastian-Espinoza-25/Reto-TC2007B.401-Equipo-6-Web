@@ -123,7 +123,7 @@ const EditPostForm = () => {
         <input type="file" name="file_path" onChange={handleChange} required />
       </div>
       <div className="right-column">
-        <label>Imagen</label>
+        <label>Imágen</label>
         <input type="file" name="image_path" onChange={handleChange} required />
         {imagePreview && (
           <div className="image-preview">

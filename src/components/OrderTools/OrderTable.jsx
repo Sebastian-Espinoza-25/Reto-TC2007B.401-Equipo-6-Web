@@ -170,13 +170,13 @@ const OrdersTable = () => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Order Number</TableCell>
-            <TableCell>User Details</TableCell>
-            <TableCell>Shipping Status</TableCell>
-            <TableCell>Order Date</TableCell>
-            <TableCell>Delivery Date</TableCell>
-            <TableCell>Total Price</TableCell>
-            <TableCell>Actions</TableCell>
+            <TableCell>Número de órden</TableCell>
+            <TableCell>Detalles Usuaro</TableCell>
+            <TableCell>Estatus de envío</TableCell>
+            <TableCell>Fecha de órden</TableCell>
+            <TableCell>Fecha de entrega</TableCell>
+            <TableCell>Precio Total</TableCell>
+            <TableCell>Acciones</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -236,10 +236,10 @@ const OrdersTable = () => {
                         <Table>
                           <TableHead>
                             <TableRow>
-                              <TableCell>Product SKU</TableCell>
-                              <TableCell>Product Name</TableCell>
-                              <TableCell>Quantity</TableCell>
-                              <TableCell>Price</TableCell>
+                              <TableCell>SKU del producto</TableCell>
+                              <TableCell>Nombre del producto</TableCell>
+                              <TableCell>Cantidad</TableCell>
+                              <TableCell>Precio</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
@@ -271,10 +271,10 @@ const OrdersTable = () => {
                           <TableHead>
                             <TableRow>
                               <TableCell>Email</TableCell>
-                              <TableCell>Phone</TableCell>
-                              <TableCell>Name</TableCell>
-                              <TableCell>Gender</TableCell>
-                              <TableCell>Address</TableCell>
+                              <TableCell>Teléfono</TableCell>
+                              <TableCell>Nombre</TableCell>
+                              <TableCell>Género</TableCell>
+                              <TableCell>Dirección</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
@@ -299,10 +299,10 @@ const OrdersTable = () => {
         </TableBody>
       </Table>
       <Dialog open={openDialog} onClose={handleDialogClose}>
-        <DialogTitle>Confirm Status Change</DialogTitle>
+        <DialogTitle>Confirmar cambio de estatus</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Are you sure you want to change the shipping status to "{newStatus}
+            ¿Estás seguro de que quieres cambiar el estatus de envío a "{newStatus}
             "?
           </DialogContentText>
           <Select value={newStatus} onChange={handleStatusChange} fullWidth className="filter-select">
@@ -315,10 +315,10 @@ const OrdersTable = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDialogClose} color="primary">
-            Cancel
+            Cancelar
           </Button>
           <Button onClick={handleDialogConfirm} color="primary">
-            Confirm
+            Confirmar
           </Button>
         </DialogActions>
       </Dialog>

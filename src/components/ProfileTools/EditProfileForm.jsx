@@ -57,7 +57,7 @@ const EditPartnerForm = ({ partner }) => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="formNEW" onSubmit={handleSubmit}>
       <h2>Editar Colaborador</h2>
       <div className="left-column">
         <label>Nombre</label>
