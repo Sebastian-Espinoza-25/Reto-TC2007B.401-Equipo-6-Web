@@ -1,9 +1,9 @@
 /* web/src/components/Profile/UserProfile.css */
 .user-profile {
   padding: 20px;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #fad0e7, #ffecfe);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(132, 0, 255, 0.1);
 }
 
 .profile-details {

@@ -138,19 +138,21 @@ const PartnerTable = () => {
             value={filterAccountStatus}
             onChange={handleAccountStatusFilterChange}
             displayEmpty
+            className="filter-select"
           >
-            <MenuItem value="">Todos</MenuItem>
-            <MenuItem value="enabled">Habilitada</MenuItem>
-            <MenuItem value="disabled">Deshabilitada</MenuItem>
+            <MenuItem className="filter-item"value="">Todos</MenuItem>
+            <MenuItem className="filter-item"value="enabled">Habilitada</MenuItem>
+            <MenuItem className="filter-item"value="disabled">Deshabilitada</MenuItem>
           </Select>
           <Select
             value={filterAccountType}
             onChange={handleAccountTypeFilterChange}
             displayEmpty
+            className="filter-select"
           >
-            <MenuItem value="">Todos</MenuItem>
-            <MenuItem value="admin">Admin</MenuItem>
-            <MenuItem value="experto">Experto</MenuItem>
+            <MenuItem className="filter-item"value="">Todos</MenuItem>
+            <MenuItem className="filter-item"value="admin">Admin</MenuItem>
+            <MenuItem className="filter-item"value="experto">Experto</MenuItem>
           </Select>
         </div>
       </div>
@@ -194,7 +196,7 @@ const PartnerTable = () => {
               <TableCell>{partner.account_type}</TableCell>
               <TableCell>{partner.birth_date}</TableCell>
               <TableCell>
-                <button onClick={() => handleEditClick(partner)}>
+                <button className="enable-disable-btn"onClick={() => handleEditClick(partner)}>
                   {partner.account_status === "enabled"
                     ? "Deshabilitar"
                     : "Habilitar"}

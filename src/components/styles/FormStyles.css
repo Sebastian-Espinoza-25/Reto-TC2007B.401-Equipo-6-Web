@@ -81,15 +81,16 @@
   padding: 0.75rem;
   border: none;
   border-radius: 2em;
-  background: var(--orange);
+  background: #f8619e;
   color: white;
   font-size: 1rem;
   cursor: pointer;
   align-self: center;
+  box-shadow: #ff2b80 0px 0px 4px 0.5px;
 }
 
 .form button:hover {
-  background: darken(var(--orange), 10%);
+  background: #ff2b80;
 }
 
 /* Media query para pantallas pequeñas */

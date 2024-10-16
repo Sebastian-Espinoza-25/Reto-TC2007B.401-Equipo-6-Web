@@ -158,13 +158,13 @@ const OrdersTable = () => {
     <TableContainer component={Paper}>
       <div className="filter-container">
         <h2>Órdenes Totales: {filteredOrders.length}</h2>
-        <Select value={filterStatus} onChange={handleFilterChange} displayEmpty>
-          <MenuItem value="">Todos</MenuItem>
-          <MenuItem value="entregado">Entregado</MenuItem>
-          <MenuItem value="pendiente">Pendiente</MenuItem>
-          <MenuItem value="en camino">En Camino</MenuItem>
-          <MenuItem value="en fabricación">En Fabricación</MenuItem>
-          <MenuItem value="cancelado">Cancelado</MenuItem>
+        <Select value={filterStatus} onChange={handleFilterChange} displayEmpty className="filter-select">
+          <MenuItem className="filter-item"value="">Todos</MenuItem>
+          <MenuItem className="filter-item"value="entregado">Entregado</MenuItem>
+          <MenuItem className="filter-item"value="pendiente">Pendiente</MenuItem>
+          <MenuItem className="filter-item"value="en camino">En Camino</MenuItem>
+          <MenuItem className="filter-item"value="en fabricación">En Fabricación</MenuItem>
+          <MenuItem className="filter-item"value="cancelado">Cancelado</MenuItem>
         </Select>
       </div>
       <Table>
@@ -305,12 +305,12 @@ const OrdersTable = () => {
             Are you sure you want to change the shipping status to "{newStatus}
             "?
           </DialogContentText>
-          <Select value={newStatus} onChange={handleStatusChange} fullWidth>
-            <MenuItem value="entregado">Entregado</MenuItem>
-            <MenuItem value="pendiente">Pendiente</MenuItem>
-            <MenuItem value="en camino">En Camino</MenuItem>
-            <MenuItem value="en fabricación">En Fabricación</MenuItem>
-            <MenuItem value="cancelado">Cancelado</MenuItem>
+          <Select value={newStatus} onChange={handleStatusChange} fullWidth className="filter-select">
+            <MenuItem className="filter-item"value="entregado">Entregado</MenuItem>
+            <MenuItem className="filter-item"value="pendiente">Pendiente</MenuItem>
+            <MenuItem className="filter-item"value="en camino">En Camino</MenuItem>
+            <MenuItem className="filter-item"value="en fabricación">En Fabricación</MenuItem>
+            <MenuItem className="filter-item"value="cancelado">Cancelado</MenuItem>
           </Select>
         </DialogContent>
         <DialogActions>

@@ -18,20 +18,23 @@
 }
 
 .buttons button {
-  padding: 5px 20px;
+  padding: 10px;
+  margin: 2px;
   border: none;
-  border-radius: 20px;
+  border-radius: 4px;
   cursor: pointer;
-  background-color: #4caf50;
+  background-color: #f8619e;
   color: white;
   font-size: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .buttons button.active {
-  background-color: #2e7d32;
+  background-color: #ff2b80;
   font-weight: bold;
 }
 
 .buttons button:hover {
-  background-color: #45a049;
+  background-color: #f81570;
 }

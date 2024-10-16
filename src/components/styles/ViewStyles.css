@@ -8,13 +8,35 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: var(--glass);
+  background: #fde6ff;
   padding: 2rem;
   border-radius: 2rem;
   box-shadow: var(--boxShadow);
 }
+/* Scrollbar styling for WebKit browsers (Chrome, Safari, Edge) */
+.view::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.view::-webkit-scrollbar-track {
+  background: #fde7ff; /* Track background color */
+  border-radius: 10px;
+}
+
+.view::-webkit-scrollbar-thumb {
+  background-color: #f8619e; /* Scrollbar thumb (handle) color */
+  border-radius: 10px; /* Rounded scrollbar handle */
+  border: 2px solid #fde7ff; /* Adds a border around the thumb */
+}
+
+.view::-webkit-scrollbar-thumb:hover {
+  background-color: #ff2b80; /* Color when hovering */
+}
+
+
 
 .container {
+  background: linear-gradient(90deg, #ffccee, #fdecff);
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -23,9 +45,33 @@
   padding: 10px;
   border-radius: 10px;
 }
+/* Scrollbar styling for WebKit browsers (Chrome, Safari, Edge) */
+.container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.container::-webkit-scrollbar-track {
+  background: #fde7ff; /* Track background color */
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #f8619e; /* Scrollbar thumb (handle) color */
+  border-radius: 10px; /* Rounded scrollbar handle */
+  border: 2px solid #fde7ff; /* Adds a border around the thumb */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: #ff2b80; /* Color when hovering */
+}
+
+
+
+
+
 
 .card {
-  background-color: #fff;
+  background: linear-gradient(180deg, #fdf3fa, #fde7ff);
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -93,8 +139,10 @@
 }
 
 .delete-button {
-  background-color: #ff4d4d;
+  background-color: #c50000;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 .toggle-button {

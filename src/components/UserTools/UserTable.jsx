@@ -84,11 +84,12 @@ const UserTable = () => {
             value={filterGender}
             onChange={handleFilterChange}
             displayEmpty
+            className="filter-select"
           >
-            <MenuItem value="">Todos</MenuItem>
-            <MenuItem value="male">Masculino</MenuItem>
-            <MenuItem value="female">Femenino</MenuItem>
-            <MenuItem value="other">Otro</MenuItem>
+            <MenuItem className="filter-item"value="">Todos</MenuItem>
+            <MenuItem className="filter-item"value="male">Masculino</MenuItem>
+            <MenuItem className="filter-item"value="female">Femenino</MenuItem>
+            <MenuItem className="filter-item"value="other">Otro</MenuItem>
           </Select>
         </div>
       </div>
