@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import LoginForm from "../LoginTools/LoginForm";
 import "./AppLogin.css";
 
-function AppLogin({ onLogin }) { // Accepting onLogin as a prop
-  const [error, setError] = useState('');
+function AppLogin({ onLogin }) {
+  // Accepting onLogin as a prop
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   // Simulando un almacenamiento de usuarios
@@ -15,14 +16,14 @@ function AppLogin({ onLogin }) { // Accepting onLogin as a prop
 
   const handleLogin = (role, email, password) => {
     // Verificar si el rol es válido y si las credenciales coinciden
-    if (validCredentials[role] && 
-        validCredentials[role].email === email && 
-        validCredentials[role].password === password) {
-      
+    if (
+      validCredentials[role] &&
+      validCredentials[role].email === email &&
+      validCredentials[role].password === password
+    ) {
       localStorage.setItem("userRole", role); // Almacena el rol en el almacenamiento local
       onLogin(role); // Actualiza el rol del usuario
       navigate("/dashboard"); // Navega al dashboard o a la ruta correspondiente
-
     } else {
       setError("Credenciales inválidas. Por favor, inténtalo de nuevo.");
     }

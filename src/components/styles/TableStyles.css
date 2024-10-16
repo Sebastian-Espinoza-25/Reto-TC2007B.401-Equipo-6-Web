@@ -24,3 +24,34 @@
 .Button {
   margin: 5px;
 }
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-container h2 {
+  margin: 0;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-bar {
+  padding: 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.filter-container select {
+  padding: 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}

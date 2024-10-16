@@ -1,0 +1,84 @@
+.FormBack {
+  background: linear-gradient(135deg, #ffa7c1, #ffe8fd);
+  height: 60%;
+  width: 40%;
+  margin: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.FormBack:hover {
+  transform: scale(1.05);
+}
+
+.form {
+  width: 90%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  color: #d63384;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40%;
+}
+
+label {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+  box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-field:focus {
+  border-color: #d63384;
+  box-shadow: inset 0px 1px 8px rgba(214, 51, 132, 0.5);
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #d63384;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(214, 51, 132, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #f8619e !important;
+  box-shadow: 0px 7px 20px rgba(223, 70, 146, 0.5);
+}

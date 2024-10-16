@@ -1,70 +1,70 @@
 .search-bar {
-    width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .view {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background: var(--glass);
-    padding: 2rem;
-    border-radius: 2rem;
-    box-shadow: var(--boxShadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--glass);
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: var(--boxShadow);
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    height: 430px;
-    overflow: auto;
-    padding: 10px;
-    border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  height: 430px;
+  overflow: auto;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 20px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .info {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .info h2 {
-    font-size: 1.2em;
-    margin: 10px 0;
-    text-align: center;
+  font-size: 1.2em;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .info p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .summary,
 .desceiption {
-    text-align: left;
-    max-height: 100px;
-    overflow-y: auto;
+  text-align: left;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .category,
@@ -73,40 +73,40 @@
 .price,
 .dimensions,
 .sku {
-    text-align: right;
-    font-size: 0.8em;
-    font-weight: bold;
+  text-align: right;
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
 .actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .actions button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .delete-button {
-    background-color: #ff4d4d;
-    color: white;
+  background-color: #ff4d4d;
+  color: white;
 }
 
 .toggle-button {
-    background-color: #4caf50;
-    color: white;
+  background-color: #4caf50;
+  color: white;
 }
 
 .toggle-button.disabled {
-    background-color: #ff4d4d;
+  background-color: #ff4d4d;
 }
 
 .view-post {
-    background-color: #4caf50;
-    color: white;
+  background-color: #4caf50;
+  color: white;
 }

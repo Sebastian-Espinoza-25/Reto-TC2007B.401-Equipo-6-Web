@@ -7,6 +7,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import { motion } from "framer-motion";
 import "../styles/TableStyles.css";
 
@@ -16,6 +23,10 @@ const OrdersTable = () => {
   const [orderItems, setOrderItems] = useState([]);
   const [userDetails, setUserDetails] = useState({});
   const [visibleUserDetails, setVisibleUserDetails] = useState({});
+  const [filterStatus, setFilterStatus] = useState("");
+  const [editOrder, setEditOrder] = useState(null);
+  const [newStatus, setNewStatus] = useState("");
+  const [openDialog, setOpenDialog] = useState(false);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -73,8 +84,89 @@ const OrdersTable = () => {
     }
   };
 
+  const handleFilterChange = (event) => {
+    setFilterStatus(event.target.value);
+  };
+
+  const handleEditClick = (order) => {
+    setEditOrder(order);
+    setNewStatus(order.shipping_status);
+    setOpenDialog(true);
+  };
+
+  const handleStatusChange = (event) => {
+    setNewStatus(event.target.value);
+  };
+
+  const handleDialogClose = () => {
+    setOpenDialog(false);
+    setEditOrder(null);
+  };
+
+  const handleDialogConfirm = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/orders/${editOrder.order_number}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ shipping_status: newStatus }),
+        }
+      );
+      if (response.ok) {
+        setOrders((prevOrders) =>
+          prevOrders.map((order) =>
+            order.order_number === editOrder.order_number
+              ? { ...order, shipping_status: newStatus }
+              : order
+          )
+        );
+      } else {
+        console.error("Error updating order status");
+      }
+    } catch (error) {
+      console.error("Error updating order status:", error);
+    }
+    setOpenDialog(false);
+    setEditOrder(null);
+  };
+
+  const filteredOrders = filterStatus
+    ? orders.filter((order) => order.shipping_status === filterStatus)
+    : orders;
+
+  const getStatusColor = (status) => {
+    switch (status) {
+      case "entregado":
+        return "green";
+      case "pendiente":
+        return "orange";
+      case "en camino":
+        return "blue";
+      case "en fabricación":
+        return "purple";
+      case "cancelado":
+        return "red";
+      default:
+        return "black";
+    }
+  };
+
   return (
     <TableContainer component={Paper}>
+      <div className="filter-container">
+        <h2>Órdenes Totales: {filteredOrders.length}</h2>
+        <Select value={filterStatus} onChange={handleFilterChange} displayEmpty>
+          <MenuItem value="">Todos</MenuItem>
+          <MenuItem value="entregado">Entregado</MenuItem>
+          <MenuItem value="pendiente">Pendiente</MenuItem>
+          <MenuItem value="en camino">En Camino</MenuItem>
+          <MenuItem value="en fabricación">En Fabricación</MenuItem>
+          <MenuItem value="cancelado">Cancelado</MenuItem>
+        </Select>
+      </div>
       <Table>
         <TableHead>
           <TableRow>
@@ -88,21 +180,36 @@ const OrdersTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {orders.map((order) => (
+          {filteredOrders.map((order) => (
             <React.Fragment key={order.order_number}>
               <TableRow>
                 <TableCell>{order.order_number}</TableCell>
                 <TableCell>
                   <Button
                     variant="contained"
-                    onClick={() => handleUserDetailsClick(order.user_email, order.order_number)}
+                    onClick={() =>
+                      handleUserDetailsClick(
+                        order.user_email,
+                        order.order_number
+                      )
+                    }
                   >
                     {visibleUserDetails[order.order_number]
                       ? "Hide Details"
                       : "View Details"}
                   </Button>
                 </TableCell>
-                <TableCell>{order.shipping_status}</TableCell>
+                <TableCell>
+                  <Button
+                    variant="contained"
+                    style={{
+                      backgroundColor: getStatusColor(order.shipping_status),
+                    }}
+                    onClick={() => handleEditClick(order)}
+                  >
+                    {order.shipping_status}
+                  </Button>
+                </TableCell>
                 <TableCell>{order.order_date}</TableCell>
                 <TableCell>{order.delivery_date}</TableCell>
                 <TableCell>${order.total_price}</TableCell>
@@ -191,6 +298,30 @@ const OrdersTable = () => {
           ))}
         </TableBody>
       </Table>
+      <Dialog open={openDialog} onClose={handleDialogClose}>
+        <DialogTitle>Confirm Status Change</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to change the shipping status to "{newStatus}
+            "?
+          </DialogContentText>
+          <Select value={newStatus} onChange={handleStatusChange} fullWidth>
+            <MenuItem value="entregado">Entregado</MenuItem>
+            <MenuItem value="pendiente">Pendiente</MenuItem>
+            <MenuItem value="en camino">En Camino</MenuItem>
+            <MenuItem value="en fabricación">En Fabricación</MenuItem>
+            <MenuItem value="cancelado">Cancelado</MenuItem>
+          </Select>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDialogClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleDialogConfirm} color="primary">
+            Confirm
+          </Button>
+        </DialogActions>
+      </Dialog>
     </TableContainer>
   );
 };

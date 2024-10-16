@@ -6,13 +6,14 @@ import { SidebarData } from "../../Data/Data";
 import { UilSignout, UilBars } from "@iconscout/react-unicons";
 
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [selected, setSelected] = React.useState(); //ANIMATION
   const [expanded, setExpanded] = React.useState(true);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     // Automatically set the selected item based on the current path
@@ -33,6 +34,13 @@ const Sidebar = () => {
     false: {
       left: "-60%",
     },
+  };
+
+  const handleLogout = () => {
+    // Eliminar el rol del usuario del almacenamiento local
+    localStorage.removeItem("userRole");
+    // Redirigir a la página de inicio de sesión
+    navigate("/");
   };
 
   return (
@@ -79,14 +87,10 @@ const Sidebar = () => {
               </Link>
             );
           })}
-          {/* AQUÍ VA EL LOGOUT */}
-          <div className="menuItem">
-            <Link
-              to="/404"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <UilSignout />
-            </Link>
+          {/* Logout */}
+          <div className="menuItem" onClick={handleLogout}>
+            <UilSignout />
+            <span>Logout</span>
           </div>
         </div>
       </motion.div>

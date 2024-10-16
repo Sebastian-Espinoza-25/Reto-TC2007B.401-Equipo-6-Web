@@ -11,7 +11,10 @@ const EditPartnerForm = ({ partner }) => {
     role: "",
   });
   const [imagePreview, setImagePreview] = useState(null);
-  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+  const [imageDimensions, setImageDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
     if (partner) {
