@@ -1,11 +1,5 @@
+
 .view {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background: var(--glass);
-  padding: 1rem;
-  border-radius: 2rem;
-  box-shadow: var(--boxShadow);
   overflow: auto;
   flex: 1;
 }

@@ -44,7 +44,7 @@ const Products = () => {
           </button>
         </div>
       </div>
-      <div>{renderView()}</div>
+      {renderView()}
     </div>
   );
 };

@@ -77,7 +77,7 @@ const PostForm = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="formNEW" onSubmit={handleSubmit}>
       <div className="left-column">
         <label>Título</label>
         <input
