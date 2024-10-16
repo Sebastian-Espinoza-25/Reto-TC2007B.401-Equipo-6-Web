@@ -1,29 +1,162 @@
 import React, { useEffect, useState } from "react";
-import { Line, Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import ReactApexChart from "react-apexcharts";
 import "../styles/Dashboard.css";
 
-// Registra los componentes necesarios de chart.js
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+class ApexChart extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      series: [
+        {
+          name: "Sales",
+          data: [],
+        },
+      ],
+      options: {
+        chart: {
+          height: 350,
+          type: "line",
+          toolbar: {
+            show: false,
+          },
+        },
+        stroke: {
+          width: 5,
+          curve: "smooth",
+        },
+        xaxis: {
+          type: "datetime",
+          categories: [],
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "light",
+            type: "horizontal",
+            shadeIntensity: 1,
+            gradientToColors: ["#00f", "#f00"],
+            inverseColors: false,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100],
+          },
+        },
+        colors: ["#800080"],
+        tooltip: {
+          theme: "light",
+          x: {
+            show: true,
+            format: "dd MMM",
+          },
+          y: {
+            formatter: (val) => `$${val}`,
+          },
+        },
+        grid: {
+          borderColor: "#e9ecef",
+        },
+      },
+    };
+  }
+
+  componentDidMount() {
+    this.fetchOrders();
+  }
+
+  fetchOrders = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`);
+      const data = await response.json();
+      const orderDates = data.map((order) => order.order_date);
+      const orderSales = data.map((order) => order.total_price);
+
+      this.setState({
+        series: [
+          {
+            name: "Ventas",
+            data: orderSales,
+          },
+        ],
+        options: {
+          ...this.state.options,
+          xaxis: {
+            ...this.state.options.xaxis,
+            categories: orderDates,
+          },
+        },
+      });
+
+      this.props.onOrdersFetched(data);
+    } catch (error) {
+      console.error("Error descargando ordenes:", error);
+    }
+  };
+
+  render() {
+    return (
+      <div id="chart">
+        <ReactApexChart
+          options={this.state.options}
+          series={this.state.series}
+          type="line"
+          height={350}
+        />
+      </div>
+    );
+  }
+}
+
+const TopProductsChart = ({ topProducts }) => {
+  const colors = ["#00aaff", "#ffaa00", "#aa00ff", "#ff0077", "#00ff77"];
+
+  const topProductsData = {
+    series: [
+      {
+        data: topProducts.map((product) => product.count),
+      },
+    ],
+    options: {
+      chart: {
+        height: 350,
+        type: "bar",
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "45%",
+          distributed: true,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        show: false,
+      },
+      xaxis: {
+        categories: topProducts.map((product) => product.product_name),
+        labels: {
+          style: {
+            colors: colors,
+            fontSize: "12px",
+          },
+        },
+      },
+      colors: colors,
+    },
+  };
+
+  return (
+    <div id="chart">
+      <ReactApexChart
+        options={topProductsData.options}
+        series={topProductsData.series}
+        type="bar"
+        height={350}
+      />
+    </div>
+  );
+};
 
 const Dashboard = () => {
   const [orders, setOrders] = useState([]);
@@ -68,54 +201,28 @@ const Dashboard = () => {
     }
   };
 
-  const ordersData = {
-    labels: orders.map((order) => order.order_date),
-    datasets: [
-      {
-        label: "Venta Total ",
-        data: orders.map((order) => order.total_price),
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        borderColor: "rgba(75, 192, 192, 1)",
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const topProductsData = {
-    labels: topProducts.map((product) => product.product_name),
-    datasets: [
-      {
-        label: "Top Products",
-        data: topProducts.map((product) => product.count),
-        backgroundColor: "rgba(255, 159, 64, 0.2)",
-        borderColor: "rgba(255, 159, 64, 1)",
-        borderWidth: 1,
-      },
-    ],
-  };
-
   return (
     <div className="view">
       <div className="dashboard-content">
         <div className="charts">
           <div className="chart">
-            <h2>Orders Overview</h2>
-            <Line data={ordersData} />
+            <h2>Órdenes</h2>
+            <ApexChart onOrdersFetched={setOrders} />
           </div>
           <div className="chart">
-            <h2>Top 5 Products</h2>
-            <Bar data={topProductsData} />
+            <h2>Top 5 Productos</h2>
+            <TopProductsChart topProducts={topProducts} />
           </div>
         </div>
         <div className="recent-orders">
-          <h2>Recent Orders</h2>
+          <h2>Órdenes recientes</h2>
           <table>
             <thead>
               <tr>
-                <th>Order Number</th>
-                <th>User Email</th>
-                <th>Total Price</th>
-                <th>Order Date</th>
+                <th>Número de orden</th>
+                <th>Email usuario</th>
+                <th>Precio total</th>
+                <th>fecha de orden</th>
               </tr>
             </thead>
             <tbody>
@@ -131,7 +238,7 @@ const Dashboard = () => {
           </table>
         </div>
         <div className="recent-posts">
-          <h2>Recent Posts</h2>
+          <h2>Posts Recientes</h2>
           <ul>
             {posts.slice(0, 5).map((post) => (
               <li key={post.post_id}>

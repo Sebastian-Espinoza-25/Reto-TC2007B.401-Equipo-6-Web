@@ -45,13 +45,13 @@ const ProfileView = () => {
           <strong>Email:</strong> {userData.email}
         </p>
         <p>
-          <strong>Birth Date:</strong> {userData.birth_date}
+          <strong>Fecha de nacimiento:</strong> {userData.birth_date}
         </p>
         <p>
-          <strong>Account Type:</strong> {userData.account_type}
+          <strong>Tipo de cuenta:</strong> {userData.account_type}
         </p>
         <p>
-          <strong>Account Status:</strong>{" "}
+          <strong>Estatus de cuenta:</strong>{" "}
           {userData.account_status ? "Habilitado" : "Habilitado"}
         </p>
       </div>

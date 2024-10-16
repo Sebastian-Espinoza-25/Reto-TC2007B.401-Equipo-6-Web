@@ -90,7 +90,7 @@ const Sidebar = () => {
           {/* Logout */}
           <div className="menuItem" onClick={handleLogout}>
             <UilSignout />
-            <span>Logout</span>
+            <span>Cerrar sesión</span>
           </div>
         </div>
       </motion.div>

@@ -1,41 +1,53 @@
-.dashboard {
-  display: flex;
-}
-
-.dashboard-content {
-  flex: 1;
-  padding: 20px;
-}
-
-.charts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .chart {
-  width: 48%;
+  width: 80%;
   margin-bottom: 20px;
+  background: linear-gradient(135deg, #fad0e7, #ffecfe);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(248, 0, 136, 0.1);
+  padding: 20px; /* Add some padding to give space around the chart */
+  overflow: hidden; /* Ensure nothing overflows */
+  margin: 0 auto; /* Center the chart */
 }
 
 .recent-orders,
 .recent-posts {
   margin-top: 20px;
+  background: linear-gradient(135deg, #fad0e7, #ffecfe); /* Apply the gradient background */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(248, 0, 136, 0.1); /* Soft shadow */
+  padding: 20px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden; /* This makes sure the border-radius applies to the entire table */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
 table th,
 table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.2s ease;
 }
 
 table th {
-  background-color: #f2f2f2;
+  background-color: #fdb9de; /* Light pink background for table headers */
+  color: #000; /* Dark text for better readability */
+  font-weight: 700;
+}
+
+table td {
+  background-color: #fff; /* White background for table cells */
+  border-bottom: 1px solid #ddd; /* Light border between rows */
+  transition: background-color 0.3s ease-in-out;
+}
+
+table td:hover {
+  background-color: rgba(119, 0, 255, 0.05); /* Light hover effect */
 }
 
 ul {
@@ -48,4 +60,6 @@ ul li {
   margin: 5px 0;
   padding: 10px;
   border: 1px solid #ddd;
+  border-radius: 10px; /* Add rounded corners to list items */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for list items */
 }
