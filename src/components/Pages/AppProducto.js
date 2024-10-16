@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Products from "../ProductTools/Products";
-import "./AppComun.css";
+import "../styles/AppComun.css";
 
 function AppProducto() {
   return (

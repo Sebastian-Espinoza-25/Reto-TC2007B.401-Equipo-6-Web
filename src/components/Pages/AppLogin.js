@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../LoginTools/LoginForm";
-import "./AppLogin.css";
+import "../styles/AppLogin.css";
 
 function AppLogin({ onLogin }) {
   // Accepting onLogin as a prop

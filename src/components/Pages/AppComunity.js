@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Posts from "../PostsTools/Posts";
-import "./AppComun.css";
+import "../styles/AppComun.css";
 
 const AppComunity = () => {
   return (

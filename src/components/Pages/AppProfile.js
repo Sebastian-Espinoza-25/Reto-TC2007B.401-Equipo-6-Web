@@ -1,8 +1,7 @@
 import React from "react";
 import Profile from "../ProfileTools/Profile";
 import Sidebar from "../Sidebar/Sidebar";
-
-import "./AppComun.css";
+import "../styles/AppComun.css";
 
 function AppProfile() {
   return (

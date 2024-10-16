@@ -1,6 +1,6 @@
 import React from "react";
 // import Logo from "../../imgs/zazil.png";
-import "./Sidebar.css";
+import "../styles/Sidebar.css";
 
 import { SidebarData } from "../../Data/Data";
 import { UilSignout, UilBars } from "@iconscout/react-unicons";

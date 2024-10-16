@@ -1,6 +1,6 @@
 // web/src/components/Profile/UserProfile.jsx
 import React, { useEffect, useState } from "react";
-import "./ProfileView.css";
+import "../styles/ProfileView.css";
 
 const ProfileView = () => {
   const [userData, setUserData] = useState(null);

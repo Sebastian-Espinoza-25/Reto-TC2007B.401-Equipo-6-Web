@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UilExclamationTriangle } from "@iconscout/react-unicons"; // Importar el icono de advertencia
-import "./PrivateRoute.css";
+import "../styles/PrivateRoute.css";
 
 const PrivateRoute = ({ children, allowedRoles }) => {
   const [showUnauthorizedModal, setShowUnauthorizedModal] = useState(false);

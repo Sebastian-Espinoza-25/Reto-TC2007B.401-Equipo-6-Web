@@ -1,8 +1,7 @@
 import React from "react";
 import Orders from "../OrderTools/Orders";
 import Sidebar from "../Sidebar/Sidebar";
-
-import "./AppComun.css";
+import "../styles/AppComun.css";
 
 function AppOrders() {
   return (

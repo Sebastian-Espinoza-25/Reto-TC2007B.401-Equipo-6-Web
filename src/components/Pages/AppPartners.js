@@ -1,8 +1,7 @@
 import React from "react";
 import Partners from "../PartnerTools/Partners";
 import Sidebar from "../Sidebar/Sidebar";
-
-import "./AppComun.css";
+import "../styles/AppComun.css";
 
 function AppPartners() {
   return (

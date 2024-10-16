@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Users from "../UserTools/Users";
-import "./AppComun.css";
+import "../styles/AppComun.css";
 
 function AppUsers() {
   return (
