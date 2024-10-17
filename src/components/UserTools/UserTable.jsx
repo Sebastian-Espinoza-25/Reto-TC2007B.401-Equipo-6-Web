@@ -12,7 +12,7 @@ import "../styles/TableStyles.css";
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
-  const [ordersCount, setOrdersCount] = useState({});
+  const [, setOrdersCount] = useState({});
   const [filterGender, setFilterGender] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -68,7 +68,7 @@ const UserTable = () => {
   return (
     <TableContainer
       component={Paper}
-      style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+      style={{ boxShadow: "0px 13px 20px 0px #80808029", overflow: "auto" }}
     >
       <div className="filter-container">
         <h2>Usuarios Totales: {filteredUsers.length}</h2>
@@ -102,7 +102,6 @@ const UserTable = () => {
             <TableCell>Teléfono</TableCell>
             <TableCell>Género</TableCell>
             <TableCell>Fecha de Nacimiento</TableCell>
-            <TableCell>Pedidos Realizados</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -120,7 +119,6 @@ const UserTable = () => {
               <TableCell>{user.phone}</TableCell>
               <TableCell>{user.gender}</TableCell>
               <TableCell>{user.birth_date}</TableCell>
-              <TableCell>{ordersCount[user.email] || 0}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -156,7 +156,7 @@ const PartnerTable = () => {
   return (
     <TableContainer
       component={Paper}
-      style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+      style={{ boxShadow: "0px 13px 20px 0px #80808029", overflow: "auto" }}
     >
       <div className="filter-container">
         <h2>Colaboradores Totales: {filteredPartners.length}</h2>
