@@ -204,16 +204,6 @@ const Dashboard = () => {
   return (
     <div className="view">
       <div className="dashboard-content">
-        <div className="charts">
-          <div className="chart">
-            <h2>Órdenes</h2>
-            <ApexChart onOrdersFetched={setOrders} />
-          </div>
-          <div className="chart">
-            <h2>Top 5 Productos</h2>
-            <TopProductsChart topProducts={topProducts} />
-          </div>
-        </div>
         <div className="recent-orders">
           <h2>Órdenes recientes</h2>
           <table>
