@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "../styles/GeneralStyles.css";
 
 const EditPartnerForm = () => {
+  const email = "mike@example.com"; // ! Cambiar a que tome el correo del socio logeado
+
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
-    email: "",
     account_status: "",
     account_type: "",
     birth_date: "",
@@ -47,18 +48,17 @@ const EditPartnerForm = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/partners`,
+        `${process.env.REACT_APP_API_URL}/partners/email/${email}`,
         {
-          method: "POST",
+          method: "PUT",
           body: partnerData,
         }
       );
       if (response.ok) {
-        alert("Colaborador creado exitosamente");
+        alert("Colaborador actualizado exitosamente");
         setFormData({
           first_name: "",
           last_name: "",
-          email: "",
           account_status: "",
           account_type: "",
           birth_date: "",
@@ -67,10 +67,10 @@ const EditPartnerForm = () => {
         setImagePreview(null);
         setImageDimensions({ width: 0, height: 0 });
       } else {
-        alert("Error al crear el colaborador");
+        alert("Error al actualizar el colaborador");
       }
     } catch (error) {
-      console.error("Error al crear el colaborador:", error);
+      console.error("Error al actualizar el colaborador:", error);
     }
   };
 
@@ -95,15 +95,6 @@ const EditPartnerForm = () => {
           onChange={handleChange}
           required
         />
-        <label>Correo Electrónico</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Correo Electrónico"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
         <label>Estado de la Cuenta</label>
         <select
           name="account_status"
@@ -112,8 +103,8 @@ const EditPartnerForm = () => {
           required
         >
           <option value="">Seleccionar</option>
-          <option value="enabled">Habilitada</option>
-          <option value="disabled">Deshabilitada</option>
+          <option value="true">Habilitada</option>
+          <option value="false">Deshabilitada</option>
         </select>
         <label>Tipo de Cuenta</label>
         <select
@@ -155,7 +146,7 @@ const EditPartnerForm = () => {
         />
       </div>
       <button type="submit" className="submit-button">
-        CREAR COLABORADOR
+        EDITAR COLABORADOR
       </button>
     </form>
   );

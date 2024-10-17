@@ -60,7 +60,9 @@ const PartnerTable = () => {
   };
 
   const handleStatusChange = (event) => {
-    setNewStatus(event.target.value);
+    const value = event.target.value === "true" ? true : false;
+    setNewStatus(value);
+    console.log("New status set to:", value); // Imprimir en consola cuando se actualiza newStatus
   };
 
   const handleDialogClose = () => {
@@ -69,9 +71,10 @@ const PartnerTable = () => {
   };
 
   const handleDialogConfirm = async () => {
+    console.log("Confirming new status:", newStatus); // Imprimir en consola cuando se confirma el diálogo
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/partners/${editPartner.email}`,
+        `${process.env.REACT_APP_API_URL}/partners/email/${editPartner.email}/account_status`,
         {
           method: "PUT",
           headers: {
@@ -98,6 +101,31 @@ const PartnerTable = () => {
     setEditPartner(null);
   };
 
+  const handleDeleteClick = async (email) => {
+    if (window.confirm("¿Estás seguro de que deseas eliminar este socio?")) {
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/partners/email/${email}`,
+          {
+            method: "DELETE",
+          }
+        );
+        if (response.ok) {
+          setPartners((prevPartners) =>
+            prevPartners.filter((partner) => partner.email !== email)
+          );
+          alert("Socio eliminado exitosamente");
+        } else {
+          console.error("Error al eliminar el socio");
+          alert("Error al eliminar el socio");
+        }
+      } catch (error) {
+        console.error("Error al eliminar el socio:", error);
+        alert("Error al eliminar el socio");
+      }
+    }
+  };
+
   const filteredPartners = partners
     .filter(
       (partner) =>
@@ -106,17 +134,23 @@ const PartnerTable = () => {
           .includes(searchQuery.toLowerCase()) ||
         partner.email.toLowerCase().includes(searchQuery.toLowerCase())
     )
-    .filter((partner) =>
-      filterAccountStatus
-        ? partner.account_status === filterAccountStatus
-        : true
-    )
+    .filter((partner) => {
+      const filterStatus =
+        filterAccountStatus === "true"
+          ? true
+          : filterAccountStatus === "false"
+          ? false
+          : null;
+      return filterStatus !== null
+        ? partner.account_status === filterStatus
+        : true;
+    })
     .filter((partner) =>
       filterAccountType ? partner.account_type === filterAccountType : true
     );
 
   const getStatusColor = (status) => {
-    return status === "enabled" ? "green" : "red";
+    return status === true ? "green" : "red";
   };
 
   return (
@@ -140,9 +174,15 @@ const PartnerTable = () => {
             displayEmpty
             className="filter-select"
           >
-            <MenuItem className="filter-item"value="">Todos</MenuItem>
-            <MenuItem className="filter-item"value="enabled">Habilitada</MenuItem>
-            <MenuItem className="filter-item"value="disabled">Deshabilitada</MenuItem>
+            <MenuItem className="filter-item" value="">
+              Todos
+            </MenuItem>
+            <MenuItem className="filter-item" value="true">
+              Habilitada
+            </MenuItem>
+            <MenuItem className="filter-item" value="false">
+              Deshabilitada
+            </MenuItem>
           </Select>
           <Select
             value={filterAccountType}
@@ -150,9 +190,15 @@ const PartnerTable = () => {
             displayEmpty
             className="filter-select"
           >
-            <MenuItem className="filter-item"value="">Todos</MenuItem>
-            <MenuItem className="filter-item"value="admin">Admin</MenuItem>
-            <MenuItem className="filter-item"value="experto">Experto</MenuItem>
+            <MenuItem className="filter-item" value="">
+              Todos
+            </MenuItem>
+            <MenuItem className="filter-item" value="admin">
+              Admin
+            </MenuItem>
+            <MenuItem className="filter-item" value="experto">
+              Experto
+            </MenuItem>
           </Select>
         </div>
       </div>
@@ -188,7 +234,7 @@ const PartnerTable = () => {
                   }}
                   onClick={() => handleEditClick(partner)}
                 >
-                  {partner.account_status === "enabled"
+                  {partner.account_status === true
                     ? "Habilitada"
                     : "Deshabilitada"}
                 </Button>
@@ -196,10 +242,11 @@ const PartnerTable = () => {
               <TableCell>{partner.account_type}</TableCell>
               <TableCell>{partner.birth_date}</TableCell>
               <TableCell>
-                <button className="enable-disable-btn"onClick={() => handleEditClick(partner)}>
-                  {partner.account_status === "enabled"
-                    ? "Deshabilitar"
-                    : "Habilitar"}
+                <button
+                  className="enable-disable-btn"
+                  onClick={() => handleDeleteClick(partner.email)}
+                >
+                  Eliminar
                 </button>
               </TableCell>
             </TableRow>
@@ -213,9 +260,9 @@ const PartnerTable = () => {
             ¿Estás seguro de que deseas cambiar el estado de la cuenta a "
             {newStatus}"?
           </DialogContentText>
-          <Select value={newStatus} onChange={handleStatusChange} fullWidth>
-            <MenuItem value="enabled">Habilitada</MenuItem>
-            <MenuItem value="disabled">Deshabilitada</MenuItem>
+          <Select value={newStatus.toString()} onChange={handleStatusChange} fullWidth>
+            <MenuItem value="true">Habilitada</MenuItem>
+            <MenuItem value="false">Deshabilitada</MenuItem>
           </Select>
         </DialogContent>
         <DialogActions>

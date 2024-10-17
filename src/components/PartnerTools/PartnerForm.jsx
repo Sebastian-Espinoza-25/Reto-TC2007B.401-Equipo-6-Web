@@ -112,8 +112,8 @@ const PartnerForm = () => {
           required
         >
           <option value="">Seleccionar</option>
-          <option value="enabled">Habilitada</option>
-          <option value="disabled">Deshabilitada</option>
+          <option value="true">Habilitada</option>
+          <option value="false">Deshabilitada</option>
         </select>
         <label>Tipo de Cuenta</label>
         <select
