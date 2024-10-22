@@ -12,6 +12,8 @@ function AppLogin({ onLogin }) {
   const validCredentials = {
     admin: { email: "admin@zazil.com", password: "admin123" },
     expert: { email: "expert@zazil.com", password: "expert123" },
+    expert: { email: "laura.sanchez@example.com", password: "expert123"},
+    admin: { email: "lucia.morales@example.com", password: "admin123" },
   };
 
   const handleLogin = (role, email, password) => {
@@ -22,6 +24,7 @@ function AppLogin({ onLogin }) {
       validCredentials[role].password === password
     ) {
       localStorage.setItem("userRole", role); // Almacena el rol en el almacenamiento local
+      localStorage.setItem("userEmail", email); // Almacena el email en el almacenamiento local
       onLogin(role); // Actualiza el rol del usuario
       navigate("/dashboard"); // Navega al dashboard o a la ruta correspondiente
     } else {

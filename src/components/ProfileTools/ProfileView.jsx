@@ -4,7 +4,7 @@ import "../styles/ProfileView.css";
 
 const ProfileView = () => {
   const [userData, setUserData] = useState(null);
-  const userEmail = "rucon@example.com"; // Reemplaza esto con el email del usuario logueado
+  const userEmail = localStorage.getItem("userEmail"); // Obtiene el email del usuario logueado desde el localStorage
 
   useEffect(() => {
     const fetchUserData = async () => {
